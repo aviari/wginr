@@ -1,0 +1,51 @@
+#!/bin/csh -f
+#
+
+set here = `dirname $0`
+set rlib = `$here/../Rsrc/etc/bootpath`
+
+echo ""
+echo -n "current R library path: '"$rlib"'"
+
+touch $rlib/T_$$
+
+set stat = $status
+
+if ($stat == 0) then
+  echo "[0;32m write ok [0;m"
+  \rm $rlib/T_$$
+  exit 0
+endif
+
+echo "[0;31m no write autorization [0;m"
+
+echo ""
+echo "you should set the R_LIBS environement variable :"
+
+set sh = `echo $SHELL | awk '{if($1 ~ "csh$") print 1; else if($1 ~ "ash$") print 2; else print 0}'`
+
+if ($sh == 1  || $sh == 0)  then
+  if ($sh == 0) echo "(csh)"
+  echo '  mkdir $home/R'
+  echo '  setenv R_LIBS $home/R'
+endif
+
+if ($sh == 2  || $sh == 0)  then
+  if ($sh == 0) echo "(sh)"
+  echo '  mkdir $HOME/R'
+  echo '  export export R_LIBS=$HOME/R'
+endif
+
+echo ""
+echo "then run $here/checkrlibs again"
+
+echo ""
+echo "note: you may change the name of the R_LIBS repository to whatever you prefer"
+echo '       (e.g. $home/MyRLibs as long as you declare it in R_LIBS'
+
+
+
+
+
+exit 0
+
