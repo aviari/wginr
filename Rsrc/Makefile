@@ -42,7 +42,6 @@ PACK_MAN = $(PACK_BOOT:=.man) $(PACK_UTIL:=.man)
 
 PACK_INS = $(PACK_UTIL:=.ins)
 
-# CRAN_REPOS = http://cran.univ-lyon1.fr
 CRAN_REPOS = http://cran.irsn.fr
 
 # -------------------------------------

@@ -6,8 +6,10 @@ set Here = `cd $here/.. && pwd`
 set prt  = `$Here/scripts/guessport`
 set sh = `echo $SHELL | awk '{if($1 ~ "csh$") print 1; else if($1 ~ "ash$") print 2; else print 0}'`
 
-set sh = 0
-
+echo ""
+echo "# add the following in your .cshrc/.basrc file"
+echo "# the last line is optional and depends upon your R installation"
+echo ""
 if ($sh == 1  || $sh == 0)  then
   if ($sh == 0) echo "(csh)"
   echo "  setenv WGR_HOME $Here"
@@ -21,6 +23,8 @@ if ($sh == 2  || $sh == 0)  then
   echo '  export PATH=$WGR_HOME/scripts:$WGR_HOME/ports/$prt/bin:$PATH'
   echo '  # export R_LIBS=$HOME/R'
 endif
+
+echo ""
 
 exit 0
 

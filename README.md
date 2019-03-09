@@ -18,102 +18,125 @@ to manipulate Whole Genomes in R.
 
 ## Prerequisites
 
-this distribution contains sources as well as precompiled binaries and R libraries
-for Linux (64 bits) and MacOSX (≥ 10.12). So you may not need to recompile
-on these ports.
-
-### required software for compiling
+### Required software for compiling  and running
 
  - gcc compiler     version >= 4.6          ```gcc --version```
  - gnu make         version >= 3.81         ```make --version```
- 
-### required software for running
- 
  - R                version >= 3.0.1        ```R --version```
- - latex            version >= 2010         ```pdflatex --version```
+ - pdflatex         version >= 2010         ```pdflatex --version```
+
+note: pdflatex is needed for producing pdf reports. if not installed the
+scripts should (I actually hope so...) detect and skip pdf reporting
+(other output are still produced).
 
 note: texlive (including pdflatex) is usually installed with Rstudio
-so you don't need to worry about the last requirement if Rstudio in installed.
+so you don't need to worry about the last requirement if Rstudio is installed.
 
 you can check your config by running :
 
-```
+```sh
 scripts/checkconfig
 ```
 
+### Required authorizations
+
+You do **not** need to be root to compile and install,
+since the installation will be done in user space. 
+However on some system R will try to install the packages
+in a system-wide location (for access by all users).
+You should check that you have a write-access to these
+locations and, if not, instruct R to install in a local directory.
+
+To check this :
+
+```sh
+scripts/checkrlibs
+```
+
+if the scripts output looks like this 
+
+> current R library path: 'PATH' write ok
+
+then everything is ok. else follow the scripts instructions,
+eg:
+
+> current R library path: 'PATH' no write autorization
+>
+> you should set the R_LIBS environment variable :
+>
+>(csh)
+```sh
+  mkdir $home/R
+  setenv R_LIBS $home/R
+```
+>(bash)
+```sh
+  mkdir $HOME/R
+  export export R_LIBS=$HOME/R
+```
+note: you may change the name of the R_LIBS repository to whatever you prefer
+       (e.g. $home/MyRLibs) as long as you declare it in R_LIBS
+
 ## Compilation & Installation
-
-On linux or MacosX you may not need to recompile sources
-and jump directly to [Running](#Running).
-
-note: you do **not** need to be root to compile and install,
-since the installation will be done in user space only.
 
 At the root of distribution type:
 
-```
+```sh
 make
 ```
 
 if everything runs fine then type:
 
-```
+```sh
 make install
 ```
 
 R will try to install packages from CRAN or the local directory
 Rsrc/packages/source.
 
-In case of trouble, see 'Optional Setup' below
+In case of trouble, see [Compilation/Installation troubles](###Compilation/Installation-troubles) below
+
+All other (C) binaries will be installed in: ```\<wginr_root\>/ports/\<portname\>/bin```
+
+with :
+-\<wginr_root\> : this distribution root
+- \<portname\> : your current port
+    - x386-linux  :   Linux 64 bits
+    - x386-darwin :   MacOSx 64 bits 
+
+to know your current \<portname\>, type:
+
+```sh
+scripts/guessport
+```
 
 Finally some (rudimentary) tests can be run by:
 
-```
+```sh
 make test
 ```
 
 In addition :
-```
+
+```sh
 make clean     cleanup temporary installation files
 make distclean cleanup and restore initial distrib (dev only)
 ```
 
-(note for devs: please do a 'make distclean' before commiting)
+note for devs: please do a ```make distclean``` before commiting :smirk:
 
-### Compilation troubles
-
-#### R packages directory
-
-If 'make install' complains when installing R packages, this
-is probably because you don't have write access to
-the system-wide package directory. To install R packages at your
-home directory:
-
-(csh)
-```
-mkdir $home/R
-setenv R_LIBS $home/R
-```
-
-(bash)
-```
-mkdir $HOME/R
-export R_LIBS=$HOME/R
-```
-
-note: you may change the name of the repository to whatever
-you prefer (e.g. $home/MyRlibs) as long as you declare it in R_LIBS.
+### Compilation/Installation troubles
 
 #### R Cran repository
 
 'make install' will possibly download some additional R packages
 from CRAN.
 
-The default CRAN repository is : http://cran.univ-lyon1.fr
+The default CRAN repository is : http://cran.irsn.fr
 to change it:
 
 - edit ```Rsrc/Makefile```
-- and change ```CRAN_REPOS = http://cran.univ-lyon1.fr ``` to whatever you prefer.
+- and change ```CRAN_REPOS = http://cran.irsn.fr ``` to whatever you prefer.
 
 If the CRAN repository cannot be used for any reason
 (no internet connection, package has been removed), then 
@@ -125,29 +148,32 @@ In case of trouble with R package installation,
 please read: docs/Readme_RPackages.txt
 
 #### curses
+
 curses is needed by some (viewing) utilities in samtools.
 if curses is not installed then Makefile in samtools should detect
 and skip it (I hope so actually... didn't try yet).
 
 ## Running
 
-
------------------
--6- Path setup
------------------
+### Path setup
 
 Add the following directories to your path:
 
-<WGInRRoot>/scripts
+- ```\<wginr_root\>/scripts```
+- ```\<wginr_root\>/ports/\<portname\>/bin```
 
-<WGInRRoot>/ports/<portname>/bin
+### R_LIBS setup
 
-with <portname>: 
-    x386-linux  :   Linux 64 bits
-    x386-darwin :   MacOSx 64 bits 
+finally if you had to set the ```R_LIBS``` environment variable
+during installation, you will also need to set it before running
+scripts.
 
-to know your <portname>, type:
-    <WGInRRoot>/scripts/guessport
+Everything could be added in your ```.cshrc/.bashrc``` file.
+The following script may help you to setup this
+
+```
+scripts/showrc
+```
     
 -----------------
 -7- Usage
