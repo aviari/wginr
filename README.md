@@ -92,17 +92,16 @@ make install
 ```
 
 R will try to install packages from CRAN or the local directory
-Rsrc/packages/source.
+```Rsrc/packages/source```
 
 In case of trouble, see [Compilation/Installation troubles](###Compilation/Installation-troubles) below
 
-All other (C) binaries will be installed in: ```\<wginr_root\>/ports/\<portname\>/bin```
+All other (C) binaries will be installed in: ```ports/\<portname\>/bin```
 
-with :
--\<wginr_root\> : this distribution root
-- \<portname\> : your current port
-    - x386-linux  :   Linux 64 bits
-    - x386-darwin :   MacOSx 64 bits 
+where \<portname\> is your current port:
+
+- x386-linux  :   Linux 64 bits
+- x386-darwin :   MacOSx 64 bits 
 
 to know your current \<portname\>, type:
 
@@ -159,8 +158,8 @@ and skip it (I hope so actually... didn't try yet).
 
 Add the following directories to your path:
 
-- ```\<wginr_root\>/scripts```
-- ```\<wginr_root\>/ports/\<portname\>/bin```
+- ```<wginr_root>/scripts```
+- ```<wginr_root>/ports/<portname>/bin```
 
 ### R_LIBS setup
 
