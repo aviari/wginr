@@ -1,0 +1,27 @@
+#!/bin/csh -f
+#
+
+set here = `dirname $0`
+set Here = `cd $here/.. && pwd`
+set prt  = `$Here/scripts/guessport`
+set sh = `echo $SHELL | awk '{if($1 ~ "csh$") print 1; else if($1 ~ "ash$") print 2; else print 0}'`
+
+set sh = 0
+
+if ($sh == 1  || $sh == 0)  then
+  if ($sh == 0) echo "(csh)"
+  echo "  setenv WGR_HOME $Here"
+  echo '  set path = ($WGR_HOME/scripts $WGR_HOME/ports/'$prt'/bin $path)'
+  echo '  # setenv R_LIBS $home/R'
+endif
+
+if ($sh == 2  || $sh == 0)  then
+  if ($sh == 0) echo "(bash)"
+  echo "  export WGR_HOME=$Here"
+  echo '  export PATH=$WGR_HOME/scripts:$WGR_HOME/ports/$prt/bin:$PATH'
+  echo '  # export R_LIBS=$HOME/R'
+endif
+
+exit 0
+
+
