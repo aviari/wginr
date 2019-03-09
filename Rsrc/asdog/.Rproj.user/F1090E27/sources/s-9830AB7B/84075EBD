@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1512824088462.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "84075EBD",
+    "lastKnownWriteTime" : 1513009594,
+    "last_content_update" : 1513009594980,
+    "path" : "~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/xlx/R/xlx.regions.r",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "380,20",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 12,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}

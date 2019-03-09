@@ -1,0 +1,1 @@
+./configure CPPFLAGS='-I./libdeflate' LDFLAGS='-L./libdeflate -Wl,-L./libdeflate'

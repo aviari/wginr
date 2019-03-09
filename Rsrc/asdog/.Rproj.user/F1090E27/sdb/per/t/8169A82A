@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# -------------------------------------------------\n# $Id: asdog.plmodel.fit.r 138 2016-11-06 10:40:00Z viari $\n# Asdog: Copy Number Analysis for WGS data\n#\n# Ploidy model : fit RCAF model to data\n#\n# penalty model:\n#\n#  score = sum(i:=obs, score_i)\n#\n#  score_i = min(j:=theo, dist_i_j) / min(k:=theo!=j, dist_i_k)^rho\n#\n#  dist_i_j = (x_i - x_j)^gamma\n#\n#  gamma = 2 - gamma0 * max(q / max.Q, a / max.A)\n#\n\n# ---------------------------------\n# fit model to obs. data\n\nplmodel.fit <- function(obs,\n                        min.A=0, max.A=1, step.A=0.05,\n                        min.Q=1, max.Q=8, step.Q=0.05,\n                        theo.weight=FALSE, \n                        gamma0=1, rho=1,\n                        use.threads=lx.use.threads()) {\n\n  #\n  # internal utilities\n  #\n  \n  # distance fit\n  #\n  .dist.fit <- function(obs, theo, gamma, rho) {\n    .abs  <- function(x) min(1, abs(x))\n    .dist <- function(x0, y0, x1, y1, gamma) (.abs(x0-x1)^gamma + .abs(y0-y1)^gamma)\n    .dmin <- function(d, w, w0) { i <- which.min(d); d[i] * w[i] * w0 }\n    mapply(function(x0, y0, w0) {\n      d <- mapply(function(xt, yt) .dist(x0, y0, xt, yt, gamma),\n                  theo$rc, theo$af, SIMPLIFY=TRUE, USE.NAMES=F)\n      dmin <- .dmin(d, theo$weight, w0)\n      if (dmin == 0) return(0)\n      d[which.min(d)] <- Inf\n      dmin <- dmin / .dmin(d, theo$weight, w0)^rho\n    }, obs$rc, obs$af, obs$weight, SIMPLIFY=T, USE.NAMES=F)\n  }\n\n  # model fit\n  #\n  \n  # <internal> model fit\n  #\n  .model.fit <- function(obs, theo, gamma, rho, as.log=T) {\n    rss <- sum(.dist.fit(obs, theo, gamma, rho))\n    n   <- length(obs$rc)\n    if (as.log) -log(rss/n) else rss/n\n  }\n  \n  #\n  # body\n  #\n  \n  max.rc <- max(obs$rc)\n  aseq <- seq(min.A, max.A, by=step.A)\n  qseq <- seq(min.Q, max.Q, by=step.Q)\n  \n  fit <- lx.lapply(qseq, function(q) {\n    sapply(aseq, function(a) {\n      #\n      # we should generate enough theoretical points in the grid\n      # to cover all observed points. this is virtually infinite\n      # (when alpha -> 1) so we limit to a reasonable number\n      # with qmax=20.\n      qmax <- max(2, min(20, ceiling(asdog.absCN(max.rc, a, q))))\n      theo <- asdog.theo.RCAF(a, q, qrange=0:qmax, with.weight=theo.weight)\n      #\n      # adjust gamma\n      gamma <- 2 - gamma0 * max(q / max.Q, a / max.A)\n      #\n      # perform fit\n      .model.fit(obs, theo, gamma=gamma, rho=rho)\n    })\n  }, use.threads=use.threads)\n\n  fit <- sapply(fit, identity)\n  colnames(fit) <- qseq\n  rownames(fit) <- aseq\n  \n  fmax <- which(fit==max(fit, na.rm=T), arr.ind=T)\n  #\n  # ties are unlikely except for artificial data...\n  # just in case, we choose lower q then lower a\n  #\n  fmax <- fmax[order(fmax[,2], fmax[,1]),,drop=F]\n  a0 <- aseq[fmax[1,1]]\n  q0 <- qseq[fmax[1,2]]\n\n  #\n  # fit quality = first / (first + second) maxima\n  #\n  .qual <- function(fit, da=0.10, dq=0.25) {\n    .bnd <- function(seq, i, d) which(abs(seq-seq[i]) <= d)\n    i0 <- which(fit==max(fit), arr.ind=T)\n    s0 <- sum(fit[.bnd(aseq, i0[1,1], da), .bnd(qseq, i0[1,2], dq)])\n    fit[.bnd(aseq, i0[1,1], da), .bnd(qseq, i0[1,2], dq)] <- min(fit)\n    i1 <- which(fit==max(fit), arr.ind=T)\n    s1 <- sum(fit[.bnd(aseq, i1[1,1], da), .bnd(qseq, i1[1,2], dq)])\n    s0/(s0+s1)\n  }\n  qual <- .qual(exp(fit))\n\n  list(obs=obs, fit=fit, \n       a0=a0, q0=q0,\n       qual=qual)\n}\n",
+    "created" : 1503215447264.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4268310646",
+    "id" : "8169A82A",
+    "lastKnownWriteTime" : 1503229141,
+    "last_content_update" : 1503229141776,
+    "path" : "~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdog/R/asdog.plmodel.fit.r",
+    "project_path" : "R/asdog.plmodel.fit.r",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}

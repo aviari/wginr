@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1512944254796.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "432742B8",
+    "lastKnownWriteTime" : 1512946470,
+    "last_content_update" : 1512946470588,
+    "path" : "~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdog/R/asdog.gcmodel.plot.r",
+    "project_path" : "R/asdog.gcmodel.plot.r",
+    "properties" : {
+        "cursorPosition" : "31,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 15,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}

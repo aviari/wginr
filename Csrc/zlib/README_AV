@@ -1,0 +1,14 @@
+# [AV] notes
+
+version 1.2.11
+----------------
+
+contrib/inflate86 is not needed anymore since the default inffast.c
+is quick enough.
+however if  you want to force contrib/inflate86 the run
+make clean all WITH_INFAS86=yes
+
+changes are logged in DIFF_AV
+
+
+

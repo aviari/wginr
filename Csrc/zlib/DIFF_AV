@@ -1,0 +1,19 @@
+=== Makefile.in
+170a171,174
+> ifdef WITH_INFAS86
+> inffast.o: contrib/inflate86/inffas86.c
+> 	$(CC) $(CFLAGS) $(ZINC) -I. -c -o $@ contrib/inflate86/inffas86.c
+> else
+172a177
+> endif
+224a230,235
+> ifdef WITH_INFAS86
+> inffast.lo: contrib/inflate86/inffas86.c
+> 	-@mkdir objs 2>/dev/null || test -d objs
+> 	$(CC) $(SFLAGS) $(ZINC) -I. -DPIC -c -o objs/inffast.o contrib/inflate86/inffas86.c
+> 	-@mv objs/inffast.o $@
+> else
+228a240
+> endif
+397a410
+> infback.o inflate.o: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h $(SRCDIR)inftrees.h $(SRCDIR)inflate.h $(SRCDIR)inffast.h $(SRCDIR)inffixed.h

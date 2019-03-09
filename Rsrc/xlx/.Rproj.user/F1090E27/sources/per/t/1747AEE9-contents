@@ -1,0 +1,20 @@
+Package: xlx
+Type: Package
+Title: XLX
+Version: 1.7
+Date: 2013-12-12
+Author: Alain Viari
+Maintainer: <alain.viari@inria.fr>
+Description: eXtensions to LX library.
+License: GPL
+Depends:
+    methods,
+    lx,
+    rbgzf
+Imports:
+    bit,
+    digest,
+    intervals
+Suggests:
+    KFAS
+RoxygenNote: 6.1.1

@@ -1,0 +1,28 @@
+#
+
+this directory contains R sources
+
+lx          : basic R utilities package
+xlx         : lx extensions for genomics
+asdog       : CNV analysis package
+rbgzf       : bgzf bindings
+thmm        : tiny HMM package
+
+packages    : thirdparty R packages used in WGInR
+              please use CRAN version, whenever possible
+              these packages are included just in case of trouble
+              with newer or unsupported packages
+
+etc         : some internal scripts used in Makefile
+
+scripts     : asdog and other scripts (will be copied into ../scripts upon install)
+
+tests       : some tests (unfinished)
+
+to compile and install :
+
+$ make all install
+
+in case of trouble when compiling please read: 
+  ../../docs/Readme_RPackages.txt
+  ../../README

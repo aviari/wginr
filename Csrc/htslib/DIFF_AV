@@ -1,0 +1,41 @@
+=== Makefile
+95c95,96
+< all: lib-static lib-shared $(BUILT_PROGRAMS) plugins $(BUILT_TEST_PROGRAMS)
+---
+> #all: lib-static lib-shared $(BUILT_PROGRAMS) plugins $(BUILT_TEST_PROGRAMS)
+> all: lib-static $(BUILT_PROGRAMS) plugins $(BUILT_TEST_PROGRAMS)
+=== bgzip.c
+24a25,28
+> /*
+>  [AV] 12/29/2018 modified default # threads
+> */
+> 
+45c49,55
+< static const int WINDOW_SIZE = 64 * 1024;
+---
+> // static const int WINDOW_SIZE = 64 * 1024;
+> static const int WINDOW_SIZE = BGZF_BLOCK_SIZE; // [AV] this is more safe
+> 
+> static inline int _nbcores()
+> {
+>     return sysconf(_SC_NPROCESSORS_ONLN);
+> }
+88c98
+<     fprintf(fp, "   -@, --threads INT          number of compression threads to use [1]\n");
+---
+>     fprintf(fp, "   -@, --threads INT          number of threads to use [0] (0=max_available <0=max_available/INT)\n");
+101c111
+<     int threads = 1;
+---
+>     int threads = 0;
+145a156,165
+>     
+>     if (threads == 0) {
+>       threads = _nbcores();
+>     }
+>     else if (threads < 0) {
+>       threads = _nbcores() / -threads;
+>       threads = (threads >= 1 ? threads : 1);
+>     }
+>     fprintf(stderr, "[threads] %d\n", threads);
+>     

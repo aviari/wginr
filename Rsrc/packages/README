@@ -1,0 +1,14 @@
+#
+# thirdparty packages used in WGInR
+#
+# Please use CRAN version, whenever possible
+# these guys are included just in case of trouble
+# with newer or unsupported packages
+#
+
+source : source packages
+binary : binary packages for some cases difficult to recompile
+
+they have been kept, for now, in the distribution for legacy but will not be
+installed.
+

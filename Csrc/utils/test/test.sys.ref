@@ -1,0 +1,15 @@
+// [info] test.sys: argn=1
+// [info] test.sys: sysOpen=0
+// [info] test.sys: sysOpen=1
+// [info] test.sys: buffer=1 one
+// [info] test.sys: buffer=2 two
+// [info] test.sys: buffer=3 three
+// [info] test.sys: buffer=
+// [info] test.sys: buffer=4 four
+// [info] test.sys: file.offset=28
+// [info] test.sys: stdin=1 one
+// [info] test.sys: stdin=2 two
+// [info] test.sys: stdin=3 three
+// [info] test.sys: stdin=
+// [info] test.sys: stdin=4 four
+// [abort] Normal End

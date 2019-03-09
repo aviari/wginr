@@ -1,0 +1,38 @@
+#!/usr/bin/env Rscript
+#
+# make R utility : force install boot package from 'packages'
+#
+# usage: bootinstall <package>
+#
+
+.out <- function(...) {
+  cat(paste0('+ ', ..., '\n'), file=stderr())
+}
+
+.quit <- function(status) {
+  quit(save='no', status=status)
+}
+
+pkg.dir <- 'packages/source/'
+
+pkg.nam <- head(commandArgs(TRUE), 1)
+
+if (length(pkg.nam) == 0) {
+  .out('usage: bootinstall package')
+  .quit(1)
+}
+
+pkg.fil <- tail(list.files(pkg.dir, paste0("^", pkg.nam, '_.*.tar.gz')), 1)
+
+if (length(pkg.fil) == 0) {
+  .out('no package tarball found for "', pkg.nam, '" in ', pkg.dir)
+  .quit(2)
+}
+
+.out('')
+.out('------ installing ', pkg.nam, ' from ', pkg.fil, ' in ', head(.libPaths(),1))
+
+install.packages(paste0(pkg.dir, pkg.fil), repos=NULL, type="source")
+
+.quit(0)
+

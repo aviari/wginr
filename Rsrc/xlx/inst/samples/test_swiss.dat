@@ -1,0 +1,982 @@
+ID   3MG1_ECOLI              Reviewed;         187 AA.
+AC   P05100; Q2M7L0;
+DT   13-AUG-1987, integrated into UniProtKB/Swiss-Prot.
+DT   13-AUG-1987, sequence version 1.
+DT   11-JUL-2012, entry version 110.
+DE   RecName: Full=DNA-3-methyladenine glycosylase 1;
+DE            EC=3.2.2.20;
+DE   AltName: Full=3-methyladenine-DNA glycosylase I, constitutive;
+DE            Short=TAG I;
+DE   AltName: Full=DNA-3-methyladenine glycosidase I;
+DE   AltName: Full=DNA-3-methyladenine glycosylase I;
+GN   Name=tag; OrderedLocusNames=b3549, JW3518;
+OS   Escherichia coli (strain K12).
+OC   Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacteriales;
+OC   Enterobacteriaceae; Escherichia.
+OX   NCBI_TaxID=83333;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA], AND PROTEIN SEQUENCE OF 1-29.
+RX   MEDLINE=87057218; PubMed=3536912;
+RA   Sakumi K., Nakabeppu Y., Yamamoto Y., Kawabata S., Iwanaga S.,
+RA   Sekiguchi M.;
+RT   "Purification and structure of 3-methyladenine-DNA glycosylase I of
+RT   Escherichia coli.";
+RL   J. Biol. Chem. 261:15761-15766(1986).
+RN   [2]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA].
+RX   MEDLINE=86232617; PubMed=3520491; DOI=10.1093/nar/14.9.3763;
+RA   Steinum A.-L., Seeberg E.;
+RT   "Nucleotide sequence of the tag gene from Escherichia coli.";
+RL   Nucleic Acids Res. 14:3763-3772(1986).
+RN   [3]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / MG1655 / ATCC 47076;
+RX   MEDLINE=94316500; PubMed=8041620; DOI=10.1093/nar/22.13.2576;
+RA   Sofia H.J., Burland V., Daniels D.L., Plunkett G. III, Blattner F.R.;
+RT   "Analysis of the Escherichia coli genome. V. DNA sequence of the
+RT   region from 76.0 to 81.5 minutes.";
+RL   Nucleic Acids Res. 22:2576-2586(1994).
+RN   [4]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / MG1655 / ATCC 47076;
+RX   MEDLINE=97426617; PubMed=9278503; DOI=10.1126/science.277.5331.1453;
+RA   Blattner F.R., Plunkett G. III, Bloch C.A., Perna N.T., Burland V.,
+RA   Riley M., Collado-Vides J., Glasner J.D., Rode C.K., Mayhew G.F.,
+RA   Gregor J., Davis N.W., Kirkpatrick H.A., Goeden M.A., Rose D.J.,
+RA   Mau B., Shao Y.;
+RT   "The complete genome sequence of Escherichia coli K-12.";
+RL   Science 277:1453-1474(1997).
+RN   [5]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / W3110 / ATCC 27325 / DSM 5911;
+RX   PubMed=16738553; DOI=10.1038/msb4100049;
+RA   Hayashi K., Morooka N., Yamamoto Y., Fujita K., Isono K., Choi S.,
+RA   Ohtsubo E., Baba T., Wanner B.L., Mori H., Horiuchi T.;
+RT   "Highly accurate genome sequences of Escherichia coli K-12 strains
+RT   MG1655 and W3110.";
+RL   Mol. Syst. Biol. 2:E1-E5(2006).
+RN   [6]
+RP   STRUCTURE BY NMR.
+RX   PubMed=12161745; DOI=10.1038/nsb829;
+RA   Drohat A.C., Kwon K., Krosky D.J., Stivers J.T.;
+RT   "3-Methyladenine DNA glycosylase I is an unexpected helix-hairpin-
+RT   helix superfamily member.";
+RL   Nat. Struct. Biol. 9:659-664(2002).
+RN   [7]
+RP   STRUCTURE BY NMR, AND ZINC-BINDING SITES.
+RX   PubMed=12654914; DOI=10.1074/jbc.M300934200;
+RA   Kwon K., Cao C., Stivers J.T.;
+RT   "A novel zinc snap motif conveys structural stability to 3-
+RT   methyladenine DNA glycosylase I.";
+RL   J. Biol. Chem. 278:19442-19446(2003).
+RN   [8]
+RP   STRUCTURE BY NMR IN COMPLEX WITH 3-METHYLADENINE, AND ZINC-BINDING
+RP   SITES.
+RX   PubMed=13129925; DOI=10.1074/jbc.M307500200;
+RA   Cao C., Kwon K., Jiang Y.L., Drohat A.C., Stivers J.T.;
+RT   "Solution structure and base perturbation studies reveal a novel mode
+RT   of alkylated base recognition by 3-methyladenine DNA glycosylase I.";
+RL   J. Biol. Chem. 278:48012-48020(2003).
+CC   -!- FUNCTION: Hydrolysis of the deoxyribose N-glycosidic bond to
+CC       excise 3-methyladenine from the damaged DNA polymer formed by
+CC       alkylation lesions.
+CC   -!- CATALYTIC ACTIVITY: Hydrolysis of alkylated DNA, releasing 3-
+CC       methyladenine.
+CC   -!- ENZYME REGULATION: Activity is controlled by product inhibition.
+CC   -!- INTERACTION:
+CC       P0AFG8:aceE; NbExp=1; IntAct=EBI-558722, EBI-542683;
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see http://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution-NoDerivs License
+CC   -----------------------------------------------------------------------
+DR   EMBL; J02606; AAA24658.1; -; Genomic_DNA.
+DR   EMBL; X03845; CAA27472.1; -; Genomic_DNA.
+DR   EMBL; U00039; AAB18526.1; -; Genomic_DNA.
+DR   EMBL; U00096; AAC76573.1; -; Genomic_DNA.
+DR   EMBL; AP009048; BAE77746.1; -; Genomic_DNA.
+DR   PIR; A24604; DGECM1.
+DR   RefSeq; NP_418005.1; NC_000913.2.
+DR   PDB; 1LMZ; NMR; -; A=1-187.
+DR   PDB; 1NKU; NMR; -; A=1-187.
+DR   PDB; 1P7M; NMR; -; A=1-187.
+DR   PDBsum; 1LMZ; -.
+DR   PDBsum; 1NKU; -.
+DR   PDBsum; 1P7M; -.
+DR   ProteinModelPortal; P05100; -.
+DR   SMR; P05100; 1-187.
+DR   DIP; DIP-10950N; -.
+DR   IntAct; P05100; 4.
+DR   MINT; MINT-1230071; -.
+DR   ECO2DBASE; H021.1; 6TH EDITION.
+DR   EnsemblBacteria; EBESCT00000001171; EBESCP00000001171; EBESCG00000000967.
+DR   EnsemblBacteria; EBESCT00000015713; EBESCP00000015004; EBESCG00000014773.
+DR   GeneID; 947137; -.
+DR   GenomeReviews; AP009048_GR; JW3518.
+DR   GenomeReviews; U00096_GR; b3549.
+DR   KEGG; eco:b3549; -.
+DR   PATRIC; 32122570; VBIEscCol129921_3662.
+DR   EchoBASE; EB0979; -.
+DR   EcoGene; EG10986; tag.
+DR   eggNOG; COG2818; -.
+DR   HOGENOM; HOG000220753; -.
+DR   KO; K01246; -.
+DR   OMA; YVAYHDT; -.
+DR   ProtClustDB; PRK10353; -.
+DR   BioCyc; EcoCyc:EG10986-MONOMER; -.
+DR   BioCyc; MetaCyc:EG10986-MONOMER; -.
+DR   EvolutionaryTrace; P05100; -.
+DR   Genevestigator; P05100; -.
+DR   GO; GO:0008725; F:DNA-3-methyladenine glycosylase activity; IEA:EC.
+DR   GO; GO:0046872; F:metal ion binding; IEA:UniProtKB-KW.
+DR   GO; GO:0006284; P:base-excision repair; IEA:InterPro.
+DR   Gene3D; G3DSA:1.10.340.30; DNA_glycosylase; 1.
+DR   InterPro; IPR005019; Adenine_glyco.
+DR   InterPro; IPR011257; DNA_glycosylase.
+DR   InterPro; IPR004597; Tag.
+DR   Pfam; PF03352; Adenine_glyco; 1.
+DR   SUPFAM; SSF48150; DNA_glycsylse; 1.
+DR   TIGRFAMs; TIGR00624; Tag; 1.
+PE   1: Evidence at protein level;
+KW   3D-structure; Complete proteome; Direct protein sequencing;
+KW   DNA damage; DNA repair; Hydrolase; Metal-binding; Reference proteome;
+KW   Zinc.
+FT   CHAIN         1    187       DNA-3-methyladenine glycosylase 1.
+FT                                /FTId=PRO_0000194877.
+FT   METAL         4      4       Zinc.
+FT   METAL        17     17       Zinc.
+FT   METAL       175    175       Zinc.
+FT   METAL       179    179       Zinc.
+FT   TURN          5      9
+FT   HELIX        12     19
+FT   STRAND       20     23
+FT   HELIX        28     39
+FT   TURN         40     43
+FT   HELIX        46     70
+FT   HELIX        73     81
+FT   STRAND       82     85
+FT   HELIX        90    107
+FT   HELIX       112    118
+FT   TURN        119    122
+FT   TURN        132    134
+FT   HELIX       140    152
+FT   HELIX       159    169
+FT   STRAND      171    173
+FT   STRAND      175    177
+FT   STRAND      179    181
+SQ   SEQUENCE   187 AA;  21100 MW;  5A305B5CA66A48FE CRC64;
+     MERCGWVSQD PLYIAYHDNE WGVPETDSKK LFEMICLEGQ QAGLSWITVL KKRENYRACF
+     HQFDPVKVAA MQEEDVERLV QDAGIIRHRG KIQAIIGNAR AYLQMEQNGE PFVDFVWSFV
+     NHQPQVTQAT TLSEIPTSTS ASDALSKALK KRGFKFVGTT ICYSFMQACG LVNDHVVGCC
+     CYPGNKP
+//
+ID   3MG2_ECOLI              Reviewed;         282 AA.
+AC   P04395;
+DT   20-MAR-1987, integrated into UniProtKB/Swiss-Prot.
+DT   20-MAR-1987, sequence version 1.
+DT   11-JUL-2012, entry version 122.
+DE   RecName: Full=DNA-3-methyladenine glycosylase 2;
+DE            EC=3.2.2.21;
+DE   AltName: Full=3-methyladenine-DNA glycosylase II, inducible;
+DE            Short=TAG II;
+DE   AltName: Full=DNA-3-methyladenine glycosidase II;
+DE   AltName: Full=DNA-3-methyladenine glycosylase II;
+GN   Name=alkA; Synonyms=aidA; OrderedLocusNames=b2068, JW2053;
+OS   Escherichia coli (strain K12).
+OC   Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacteriales;
+OC   Enterobacteriaceae; Escherichia.
+OX   NCBI_TaxID=83333;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA], AND PROTEIN SEQUENCE OF 1-12 AND
+RP   14-20.
+RX   MEDLINE=85054800; PubMed=6094528;
+RA   Nakabeppu Y., Miyata T., Kondo H., Iwanaga S., Sekiguchi M.;
+RT   "Structure and expression of the alkA gene of Escherichia coli
+RT   involved in adaptive response to alkylating agents.";
+RL   J. Biol. Chem. 259:13730-13736(1984).
+RN   [2]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / W3110 / ATCC 27325 / DSM 5911;
+RX   MEDLINE=97251358; PubMed=9097040; DOI=10.1093/dnares/3.6.379;
+RA   Itoh T., Aiba H., Baba T., Fujita K., Hayashi K., Inada T., Isono K.,
+RA   Kasai H., Kimura S., Kitakawa M., Kitagawa M., Makino K., Miki T.,
+RA   Mizobuchi K., Mori H., Mori T., Motomura K., Nakade S., Nakamura Y.,
+RA   Nashimoto H., Nishio Y., Oshima T., Saito N., Sampei G., Seki Y.,
+RA   Sivasundaram S., Tagami H., Takeda J., Takemoto K., Wada C.,
+RA   Yamamoto Y., Horiuchi T.;
+RT   "A 460-kb DNA sequence of the Escherichia coli K-12 genome
+RT   corresponding to the 40.1-50.0 min region on the linkage map.";
+RL   DNA Res. 3:379-392(1996).
+RN   [3]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / MG1655 / ATCC 47076;
+RX   MEDLINE=97426617; PubMed=9278503; DOI=10.1126/science.277.5331.1453;
+RA   Blattner F.R., Plunkett G. III, Bloch C.A., Perna N.T., Burland V.,
+RA   Riley M., Collado-Vides J., Glasner J.D., Rode C.K., Mayhew G.F.,
+RA   Gregor J., Davis N.W., Kirkpatrick H.A., Goeden M.A., Rose D.J.,
+RA   Mau B., Shao Y.;
+RT   "The complete genome sequence of Escherichia coli K-12.";
+RL   Science 277:1453-1474(1997).
+RN   [4]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / W3110 / ATCC 27325 / DSM 5911;
+RX   PubMed=16738553; DOI=10.1038/msb4100049;
+RA   Hayashi K., Morooka N., Yamamoto Y., Fujita K., Isono K., Choi S.,
+RA   Ohtsubo E., Baba T., Wanner B.L., Mori H., Horiuchi T.;
+RT   "Highly accurate genome sequences of Escherichia coli K-12 strains
+RT   MG1655 and W3110.";
+RL   Mol. Syst. Biol. 2:E1-E5(2006).
+RN   [5]
+RP   CHARACTERIZATION.
+RX   MEDLINE=85054799; PubMed=6389535;
+RA   Nakabeppu Y., Kondo H., Sekiguchi M.;
+RT   "Cloning and characterization of the alkA gene of Escherichia coli
+RT   that encodes 3-methyladenine DNA glycosylase II.";
+RL   J. Biol. Chem. 259:13723-13729(1984).
+RN   [6]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA] OF 1-2.
+RX   MEDLINE=86313568; PubMed=3529081; DOI=10.1073/pnas.83.17.6297;
+RA   Nakabeppu Y., Sekiguchi M.;
+RT   "Regulatory mechanisms for induction of synthesis of repair enzymes in
+RT   response to alkylating agents: ada protein acts as a transcriptional
+RT   regulator.";
+RL   Proc. Natl. Acad. Sci. U.S.A. 83:6297-6301(1986).
+RN   [7]
+RP   X-RAY CRYSTALLOGRAPHY (2.3 ANGSTROMS), AND MUTAGENESIS.
+RX   MEDLINE=96319733; PubMed=8706135; DOI=10.1016/S0092-8674(00)80102-6;
+RA   Yamagata Y., Kato M., Odawara K., Tokuno Y., Nakashima Y.,
+RA   Matsushima N., Yasumura K., Tomita K., Ihara K., Fujii Y.,
+RA   Nakabeppu Y., Sekiguchi M., Fujii S.;
+RT   "Three-dimensional structure of a DNA repair enzyme, 3-methyladenine
+RT   DNA glycosylase II, from Escherichia coli.";
+RL   Cell 86:311-319(1996).
+RN   [8]
+RP   X-RAY CRYSTALLOGRAPHY (1.8 ANGSTROMS).
+RX   MEDLINE=96319734; PubMed=8706136; DOI=10.1016/S0092-8674(00)80103-8;
+RA   Labahn J., Scharer O.D., Long A., Ezaz-Nikpay K., Verdine G.L.,
+RA   Ellenberger T.E.;
+RT   "Structural basis for the excision repair of alkylation-damaged DNA.";
+RL   Cell 86:321-329(1996).
+CC   -!- FUNCTION: Hydrolysis of the deoxyribose N-glycosidic bond to
+CC       excise 3-methyladenine, 3-methylguanine, 7-methylguanine, O2-
+CC       methylthymine, and O2-methylcytosine from the damaged DNA polymer
+CC       formed by alkylation lesions.
+CC   -!- CATALYTIC ACTIVITY: Hydrolysis of alkylated DNA, releasing 3-
+CC       methyladenine, 3-methylguanine, 7-methylguanine and 7-
+CC       methyladenine.
+CC   -!- SUBUNIT: Monomer.
+CC   -!- INTERACTION:
+CC       P06959:aceF; NbExp=1; IntAct=EBI-544077, EBI-542707;
+CC   -!- INDUCTION: Up-regulated by methylated Ada in response to the
+CC       exposure to alkylating agents.
+CC   -!- SIMILARITY: Belongs to the alkylbase DNA glycosidase AlkA family.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see http://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution-NoDerivs License
+CC   -----------------------------------------------------------------------
+DR   EMBL; K02498; AAA23430.1; -; Genomic_DNA.
+DR   EMBL; U00096; AAC75129.1; -; Genomic_DNA.
+DR   EMBL; AP009048; BAA15926.1; -; Genomic_DNA.
+DR   EMBL; M13827; -; NOT_ANNOTATED_CDS; Genomic_DNA.
+DR   PIR; A00904; DGECMA.
+DR   RefSeq; NP_416572.1; NC_000913.2.
+DR   PDB; 1DIZ; X-ray; 2.50 A; A/B=1-282.
+DR   PDB; 1MPG; X-ray; 1.80 A; A/B=1-282.
+DR   PDB; 1PVS; X-ray; 2.40 A; A/B=1-282.
+DR   PDB; 3CVS; X-ray; 2.40 A; A/B/C/D=1-282.
+DR   PDB; 3CVT; X-ray; 2.50 A; A/B/C/D=1-282.
+DR   PDB; 3CW7; X-ray; 2.30 A; A/B/C/D=1-282.
+DR   PDB; 3CWA; X-ray; 2.40 A; A/B/C/D=1-282.
+DR   PDB; 3CWS; X-ray; 2.30 A; A/B/C/D=1-282.
+DR   PDB; 3CWT; X-ray; 2.30 A; A/B/C/D=1-282.
+DR   PDB; 3CWU; X-ray; 2.80 A; A/B/C/D=1-282.
+DR   PDB; 3D4V; X-ray; 2.90 A; A/B/C/D=1-282.
+DR   PDB; 3OGD; X-ray; 2.80 A; A=2-282.
+DR   PDB; 3OH6; X-ray; 2.89 A; A=2-282.
+DR   PDB; 3OH9; X-ray; 2.80 A; A=2-282.
+DR   PDBsum; 1DIZ; -.
+DR   PDBsum; 1MPG; -.
+DR   PDBsum; 1PVS; -.
+DR   PDBsum; 3CVS; -.
+DR   PDBsum; 3CVT; -.
+DR   PDBsum; 3CW7; -.
+DR   PDBsum; 3CWA; -.
+DR   PDBsum; 3CWS; -.
+DR   PDBsum; 3CWT; -.
+DR   PDBsum; 3CWU; -.
+DR   PDBsum; 3D4V; -.
+DR   PDBsum; 3OGD; -.
+DR   PDBsum; 3OH6; -.
+DR   PDBsum; 3OH9; -.
+DR   ProteinModelPortal; P04395; -.
+DR   SMR; P04395; 1-282.
+DR   DIP; DIP-9084N; -.
+DR   IntAct; P04395; 19.
+DR   MINT; MINT-1227621; -.
+DR   EnsemblBacteria; EBESCT00000001174; EBESCP00000001174; EBESCG00000000970.
+DR   EnsemblBacteria; EBESCT00000016906; EBESCP00000016197; EBESCG00000015965.
+DR   GeneID; 947371; -.
+DR   GenomeReviews; AP009048_GR; JW2053.
+DR   GenomeReviews; U00096_GR; b2068.
+DR   KEGG; eco:b2068; -.
+DR   PATRIC; 32119469; VBIEscCol129921_2145.
+DR   EchoBASE; EB1204; -.
+DR   EcoGene; EG11222; alkA.
+DR   eggNOG; COG0122; -.
+DR   HOGENOM; HOG000221908; -.
+DR   KO; K01247; -.
+DR   OMA; LHIWYTD; -.
+DR   ProtClustDB; PRK10308; -.
+DR   BioCyc; EcoCyc:EG11222-MONOMER; -.
+DR   BioCyc; MetaCyc:EG11222-MONOMER; -.
+DR   EvolutionaryTrace; P04395; -.
+DR   Genevestigator; P04395; -.
+DR   GO; GO:0005737; C:cytoplasm; IDA:EcoliWiki.
+DR   GO; GO:0003905; F:alkylbase DNA N-glycosylase activity; IDA:EcoliWiki.
+DR   GO; GO:0008725; F:DNA-3-methyladenine glycosylase activity; IEA:EC.
+DR   GO; GO:0052822; F:DNA-3-methylguanine glycosylase activity; IEA:EC.
+DR   GO; GO:0052821; F:DNA-7-methyladenine glycosylase activity; IEA:EC.
+DR   GO; GO:0043916; F:DNA-7-methylguanine glycosylase activity; IEA:EC.
+DR   GO; GO:0006284; P:base-excision repair; IDA:EcoliWiki.
+DR   GO; GO:0006307; P:DNA dealkylation involved in DNA repair; IMP:EcoliWiki.
+DR   Gene3D; G3DSA:3.30.310.20; AlkA_N; 1.
+DR   Gene3D; G3DSA:1.10.340.30; DNA_glycosylase; 1.
+DR   Gene3D; G3DSA:1.10.1670.10; HTH_base_excis_C; 1.
+DR   InterPro; IPR010316; AlkA_N.
+DR   InterPro; IPR000035; Alkylbase_DNA_glycsylse_CS.
+DR   InterPro; IPR011257; DNA_glycosylase.
+DR   InterPro; IPR003265; HhH-GPD_domain.
+DR   InterPro; IPR023170; HTH_base_excis_C.
+DR   Pfam; PF06029; AlkA_N; 1.
+DR   Pfam; PF00730; HhH-GPD; 1.
+DR   SMART; SM01009; AlkA_N; 1.
+DR   SMART; SM00478; ENDO3c; 1.
+DR   SUPFAM; SSF48150; DNA_glycsylse; 1.
+DR   PROSITE; PS00516; ALKYLBASE_DNA_GLYCOS; 1.
+PE   1: Evidence at protein level;
+KW   3D-structure; Complete proteome; Direct protein sequencing;
+KW   DNA damage; DNA repair; Hydrolase; Reference proteome.
+FT   CHAIN         1    282       DNA-3-methyladenine glycosylase 2.
+FT                                /FTId=PRO_0000194878.
+FT   ACT_SITE    238    238       Proton acceptor.
+FT   SITE        218    218       Determinant for substrate specificity
+FT                                and/or activity.
+FT   MUTAGEN     124    124       Q->A: Methylmethane sulfonate-resistant.
+FT   MUTAGEN     218    218       W->A: No catalytic activity,
+FT                                methylmethane sulfonate-sensitive.
+FT   MUTAGEN     237    237       D->N: More than 30% catalytic activity,
+FT                                methylmethane sulfonate-resistant.
+FT   MUTAGEN     238    238       D->N: No catalytic activity,
+FT                                methylmethane sulfonate-sensitive.
+FT   STRAND        2      5
+FT   HELIX        12     22
+FT   TURN         25     27
+FT   STRAND       28     30
+FT   STRAND       35     41
+FT   STRAND       44     53
+FT   TURN         54     57
+FT   STRAND       58     63
+FT   HELIX        65     70
+FT   HELIX        71     82
+FT   TURN         83     85
+FT   HELIX        88     95
+FT   HELIX        96     99
+FT   HELIX       113    122
+FT   TURN        123    125
+FT   HELIX       128    142
+FT   STRAND      149    153
+FT   HELIX       158    162
+FT   HELIX       166    171
+FT   HELIX       176    190
+FT   HELIX       202    209
+FT   HELIX       217    227
+FT   HELIX       239    244
+FT   STRAND      245    247
+FT   HELIX       250    257
+FT   HELIX       258    260
+FT   HELIX       264    272
+SQ   SEQUENCE   282 AA;  31393 MW;  B66BB5E23019899C CRC64;
+     MYTLNWQPPY DWSWMLGFLA ARAVSSVETV ADSYYARSLA VGEYRGVVTA IPDIARHTLH
+     INLSAGLEPV AAECLAKMSR LFDLQCNPQI VNGALGRLGA ARPGLRLPGC VDAFEQGVRA
+     ILGQLVSVAM AAKLTARVAQ LYGERLDDFP EYICFPTPQR LAAADPQALK ALGMPLKRAE
+     ALIHLANAAL EGTLPMTIPG DVEQAMKTLQ TFPGIGRWTA NYFALRGWQA KDVFLPDDYL
+     IKQRFPGMTP AQIRRYAERW KPWRSYALLH IWYTEGWQPD EA
+//
+ID   6PGD_ECOLI              Reviewed;         468 AA.
+AC   P00350; P78080; Q47571; Q59366; Q59402; Q59411; Q59412; Q59413;
+AC   Q59414; Q59416; Q79DT3;
+DT   21-JUL-1986, integrated into UniProtKB/Swiss-Prot.
+DT   01-NOV-1997, sequence version 2.
+DT   11-JUL-2012, entry version 112.
+DE   RecName: Full=6-phosphogluconate dehydrogenase, decarboxylating;
+DE            EC=1.1.1.44;
+GN   Name=gnd; OrderedLocusNames=b2029, JW2011;
+OS   Escherichia coli (strain K12).
+OC   Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacteriales;
+OC   Enterobacteriaceae; Escherichia.
+OX   NCBI_TaxID=83333;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA].
+RX   MEDLINE=84237540; PubMed=6329905; DOI=10.1016/0378-1119(84)90070-2;
+RA   Nasoff M.S., Baker H.V. II, Wolf R.E. Jr.;
+RT   "DNA sequence of the Escherichia coli gene, gnd, for 6-
+RT   phosphogluconate dehydrogenase.";
+RL   Gene 27:253-264(1984).
+RN   [2]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA].
+RC   STRAIN=ECOR 10;
+RX   MEDLINE=91267957; PubMed=2050640;
+RA   Bisercic M., Feutrier J.Y., Reeves P.R.;
+RT   "Nucleotide sequences of the gnd genes from nine natural isolates of
+RT   Escherichia coli: evidence of intragenic recombination as a
+RT   contributing factor in the evolution of the polymorphic gnd locus.";
+RL   J. Bacteriol. 173:3894-3900(1991).
+RN   [3]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA].
+RC   STRAIN=ECOR 45, ECOR 65, ECOR 67, ECOR 68, ECOR 69, and ECOR 70;
+RX   MEDLINE=92041624; PubMed=1938920;
+RA   Dykhuizen D.E., Green L.;
+RT   "Recombination in Escherichia coli and the definition of biological
+RT   species.";
+RL   J. Bacteriol. 173:7257-7268(1991).
+RN   [4]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / W3110 / ATCC 27325 / DSM 5911;
+RX   MEDLINE=97251358; PubMed=9097040; DOI=10.1093/dnares/3.6.379;
+RA   Itoh T., Aiba H., Baba T., Fujita K., Hayashi K., Inada T., Isono K.,
+RA   Kasai H., Kimura S., Kitakawa M., Kitagawa M., Makino K., Miki T.,
+RA   Mizobuchi K., Mori H., Mori T., Motomura K., Nakade S., Nakamura Y.,
+RA   Nashimoto H., Nishio Y., Oshima T., Saito N., Sampei G., Seki Y.,
+RA   Sivasundaram S., Tagami H., Takeda J., Takemoto K., Wada C.,
+RA   Yamamoto Y., Horiuchi T.;
+RT   "A 460-kb DNA sequence of the Escherichia coli K-12 genome
+RT   corresponding to the 40.1-50.0 min region on the linkage map.";
+RL   DNA Res. 3:379-392(1996).
+RN   [5]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / MG1655 / ATCC 47076;
+RX   MEDLINE=97426617; PubMed=9278503; DOI=10.1126/science.277.5331.1453;
+RA   Blattner F.R., Plunkett G. III, Bloch C.A., Perna N.T., Burland V.,
+RA   Riley M., Collado-Vides J., Glasner J.D., Rode C.K., Mayhew G.F.,
+RA   Gregor J., Davis N.W., Kirkpatrick H.A., Goeden M.A., Rose D.J.,
+RA   Mau B., Shao Y.;
+RT   "The complete genome sequence of Escherichia coli K-12.";
+RL   Science 277:1453-1474(1997).
+RN   [6]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / W3110 / ATCC 27325 / DSM 5911;
+RX   PubMed=16738553; DOI=10.1038/msb4100049;
+RA   Hayashi K., Morooka N., Yamamoto Y., Fujita K., Isono K., Choi S.,
+RA   Ohtsubo E., Baba T., Wanner B.L., Mori H., Horiuchi T.;
+RT   "Highly accurate genome sequences of Escherichia coli K-12 strains
+RT   MG1655 and W3110.";
+RL   Mol. Syst. Biol. 2:E1-E5(2006).
+RN   [7]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA] OF 1-125.
+RX   MEDLINE=89126937; PubMed=2464736;
+RA   Miller R.D., Dykhuizen D.E., Hartl D.L.;
+RT   "Fitness effects of a deletion mutation increasing transcription of
+RT   the 6-phosphogluconate dehydrogenase gene in Escherichia coli.";
+RL   Mol. Biol. Evol. 5:691-703(1988).
+RN   [8]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA] OF 1-125.
+RX   MEDLINE=88086897; PubMed=3275621;
+RA   Barcak G.J., Wolf R.E. Jr.;
+RT   "Comparative nucleotide sequence analysis of growth-rate-regulated gnd
+RT   alleles from natural isolates of Escherichia coli and from Salmonella
+RT   typhimurium LT-2.";
+RL   J. Bacteriol. 170:372-379(1988).
+RN   [9]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA] OF 1-125.
+RC   STRAIN=O7:K1 / VW187;
+RX   MEDLINE=93106949; PubMed=7677991;
+RA   Marolda C.L., Valvano M.A.;
+RT   "Identification, expression, and DNA sequence of the GDP-mannose
+RT   biosynthesis genes encoded by the O7 rfb gene cluster of strain VW187
+RT   (Escherichia coli O7:K1).";
+RL   J. Bacteriol. 175:148-158(1993).
+RN   [10]
+RP   X-RAY CRYSTALLOGRAPHY (1.5 ANGSTROMS) IN COMPLEXES WITH NADP AND
+RP   SUBSTRATE, SUBUNIT, CATALYTIC ACTIVITY, FUNCTION, ACTIVE SITE, AND
+RP   BIOPHYSICOCHEMICAL PROPERTIES.
+RX   PubMed=19686854; DOI=10.1016/j.jsb.2009.08.006;
+RA   Chen Y.Y., Ko T.P., Chen W.H., Lo L.P., Lin C.H., Wang A.H.;
+RT   "Conformational changes associated with cofactor/substrate binding of
+RT   6-phosphogluconate dehydrogenase from Escherichia coli and Klebsiella
+RT   pneumoniae: Implications for enzyme mechanism.";
+RL   J. Struct. Biol. 169:25-35(2010).
+CC   -!- FUNCTION: Catalyzes the oxidative decarboxylation of 6-
+CC       phosphogluconate to ribulose 5-phosphate and CO(2), with
+CC       concomitant reduction of NADP to NADPH.
+CC   -!- CATALYTIC ACTIVITY: 6-phospho-D-gluconate + NADP(+) = D-ribulose
+CC       5-phosphate + CO(2) + NADPH.
+CC   -!- BIOPHYSICOCHEMICAL PROPERTIES:
+CC       Kinetic parameters:
+CC         KM=49 uM for NADP;
+CC         KM=93 uM for 6-phospho-D-gluconate;
+CC   -!- PATHWAY: Carbohydrate degradation; pentose phosphate pathway; D-
+CC       ribulose 5-phosphate from D-glucose 6-phosphate (oxidative stage):
+CC       step 3/3.
+CC   -!- SUBUNIT: Homodimer.
+CC   -!- INTERACTION:
+CC       P18843:nadE; NbExp=1; IntAct=EBI-907049, EBI-548960;
+CC   -!- SIMILARITY: Belongs to the 6-phosphogluconate dehydrogenase
+CC       family.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see http://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution-NoDerivs License
+CC   -----------------------------------------------------------------------
+DR   EMBL; K02072; AAA23918.1; -; Genomic_DNA.
+DR   EMBL; M63821; AAA24488.1; -; Genomic_DNA.
+DR   EMBL; M64326; AAA24204.1; -; Genomic_DNA.
+DR   EMBL; M64327; AAA24205.1; -; Genomic_DNA.
+DR   EMBL; M64328; AAA24206.1; -; Genomic_DNA.
+DR   EMBL; M64329; AAA24207.1; -; Genomic_DNA.
+DR   EMBL; M64330; AAA24208.1; -; Genomic_DNA.
+DR   EMBL; M64331; AAA24209.1; -; Genomic_DNA.
+DR   EMBL; U00096; AAC75090.1; -; Genomic_DNA.
+DR   EMBL; AP009048; BAA15869.1; -; Genomic_DNA.
+DR   EMBL; M23181; AAA23924.1; -; Genomic_DNA.
+DR   EMBL; M18956; AAA23919.1; -; Genomic_DNA.
+DR   EMBL; M18957; AAA23920.1; -; Genomic_DNA.
+DR   EMBL; M18960; AAA23922.1; -; Genomic_DNA.
+DR   EMBL; AF125322; AAC27540.1; -; Genomic_DNA.
+DR   PIR; D64968; DEECGC.
+DR   PIR; I62463; I62463.
+DR   PIR; I62465; I62465.
+DR   RefSeq; NP_416533.1; NC_000913.2.
+DR   PDB; 2ZYA; X-ray; 1.60 A; A/B=1-468.
+DR   PDB; 2ZYD; X-ray; 1.50 A; A/B=1-468.
+DR   PDB; 3FWN; X-ray; 1.50 A; A/B=1-468.
+DR   PDBsum; 2ZYA; -.
+DR   PDBsum; 2ZYD; -.
+DR   PDBsum; 3FWN; -.
+DR   ProteinModelPortal; P00350; -.
+DR   SMR; P00350; 2-467.
+DR   DIP; DIP-9819N; -.
+DR   IntAct; P00350; 5.
+DR   ECO2DBASE; C042.6; 6TH EDITION.
+DR   PRIDE; P00350; -.
+DR   EnsemblBacteria; EBESCT00000002140; EBESCP00000002140; EBESCG00000001754.
+DR   EnsemblBacteria; EBESCT00000015061; EBESCP00000014352; EBESCG00000014121.
+DR   GeneID; 946554; -.
+DR   GenomeReviews; AP009048_GR; JW2011.
+DR   GenomeReviews; U00096_GR; b2029.
+DR   KEGG; eco:b2029; -.
+DR   PATRIC; 32119393; VBIEscCol129921_2106.
+DR   EchoBASE; EB0406; -.
+DR   EcoGene; EG10411; gnd.
+DR   KO; K00033; -.
+DR   OMA; KQQIGVI; -.
+DR   ProtClustDB; PRK09287; -.
+DR   BioCyc; EcoCyc:6PGLUCONDEHYDROG-MONOMER; -.
+DR   BioCyc; MetaCyc:6PGLUCONDEHYDROG-MONOMER; -.
+DR   EvolutionaryTrace; P00350; -.
+DR   Genevestigator; P00350; -.
+DR   GO; GO:0050661; F:NADP binding; IEA:InterPro.
+DR   GO; GO:0004616; F:phosphogluconate dehydrogenase (decarboxylating) activity; IDA:UniProtKB.
+DR   GO; GO:0019521; P:D-gluconate metabolic process; IEA:UniProtKB-KW.
+DR   GO; GO:0006098; P:pentose-phosphate shunt; IDA:UniProtKB.
+DR   Gene3D; G3DSA:1.20.5.320; Fibritin/6PGD_C-extension; 1.
+DR   Gene3D; G3DSA:3.40.50.720; NAD(P)-bd; 1.
+DR   Gene3D; G3DSA:1.10.1040.10; Opine_DH; 1.
+DR   InterPro; IPR008927; 6-PGluconate_DH_C-like.
+DR   InterPro; IPR006114; 6PGDH_C.
+DR   InterPro; IPR006113; 6PGDH_decarbox.
+DR   InterPro; IPR006115; 6PGDH_NADP-bd.
+DR   InterPro; IPR006184; 6PGdom_BS.
+DR   InterPro; IPR013328; DH_multihelical.
+DR   InterPro; IPR012284; Fibritin/6PGD_C-extension.
+DR   InterPro; IPR016040; NAD(P)-bd_dom.
+DR   Pfam; PF00393; 6PGD; 1.
+DR   Pfam; PF03446; NAD_binding_2; 1.
+DR   PIRSF; PIRSF000109; 6PGD; 1.
+DR   SUPFAM; SSF48179; 6DGDH_C_like; 1.
+DR   TIGRFAMs; TIGR00873; Gnd; 1.
+DR   PROSITE; PS00461; 6PGD; 1.
+PE   1: Evidence at protein level;
+KW   3D-structure; Complete proteome; Gluconate utilization; NADP;
+KW   Oxidoreductase; Pentose shunt; Reference proteome.
+FT   CHAIN         1    468       6-phosphogluconate dehydrogenase,
+FT                                decarboxylating.
+FT                                /FTId=PRO_0000090037.
+FT   NP_BIND      10     15       NADP.
+FT   NP_BIND      33     35       NADP.
+FT   NP_BIND      74     76       NADP.
+FT   REGION      128    130       Substrate binding.
+FT   REGION      186    187       Substrate binding (By similarity).
+FT   ACT_SITE    183    183       Proton acceptor.
+FT   ACT_SITE    190    190       Proton donor.
+FT   BINDING     102    102       NADP (By similarity).
+FT   BINDING     102    102       Substrate.
+FT   BINDING     191    191       Substrate (By similarity).
+FT   BINDING     260    260       Substrate; via amide nitrogen.
+FT   BINDING     287    287       Substrate.
+FT   BINDING     445    445       Substrate; shared with dimeric partner.
+FT   BINDING     451    451       Substrate; shared with dimeric partner.
+FT   VARIANT       2      2       S -> L (in strain: ECOR 70).
+FT   VARIANT      32     32       F -> Y (in strain: ECOR 70).
+FT   VARIANT      39     39       T -> Q (in strain: O7:K1 / VW187).
+FT   VARIANT      52     52       V -> D (in strain: ECOR 10).
+FT   VARIANT      55     55       Y -> F (in strain: ECOR 10).
+FT   VARIANT     102    102       N -> K (in strain: ECOR 65).
+FT   VARIANT     117    117       A -> S (in strain: ECOR 70).
+FT   VARIANT     123    125       IGT -> YRY (in strain: O7:K1 / VW187).
+FT   VARIANT     170    170       V -> F (in strain: ECOR 10).
+FT   VARIANT     175    175       A -> S (in strain: ECOR 45).
+FT   VARIANT     209    209       N -> S (in strain: ECOR 68).
+FT   VARIANT     211    211       T -> S (in strain: ECOR 10 and ECOR 69).
+FT   VARIANT     216    216       A -> T (in strain: ECOR 67).
+FT   VARIANT     294    294       D -> E (in strain: ECOR 70).
+FT   VARIANT     308    308       A -> G (in strain: ECOR 68).
+FT   VARIANT     313    313       D -> N (in strain: ECOR 67).
+FT   VARIANT     315    315       A -> G (in strain: ECOR 70).
+FT   VARIANT     325    325       L -> Q (in strain: ECOR 69).
+FT   VARIANT     330    330       I -> S (in strain: ECOR 10).
+FT   VARIANT     350    350       D -> A (in strain: ECOR 10 and ECOR 69).
+FT   VARIANT     369    369       Q -> R (in strain: ECOR 10).
+FT   VARIANT     422    422       S -> A (in strain: ECOR 10, ECOR 65, ECOR
+FT                                68, ECOR 69 and ECOR 70).
+FT   CONFLICT    306    306       P -> R (in Ref. 1; AAA23918).
+FT   STRAND        4      9
+FT   HELIX        13     23
+FT   TURN         24     26
+FT   STRAND       29     32
+FT   HELIX        36     45
+FT   STRAND       51     53
+FT   HELIX        57     62
+FT   STRAND       69     72
+FT   STRAND       76     78
+FT   HELIX        79     87
+FT   HELIX        88     90
+FT   STRAND       96     99
+FT   HELIX       105    117
+FT   STRAND      121    129
+FT   HELIX       130    136
+FT   STRAND      139    144
+FT   HELIX       146    159
+FT   STRAND      168    170
+FT   HELIX       178    208
+FT   HELIX       212    224
+FT   TURN        225    227
+FT   HELIX       230    240
+FT   STRAND      246    248
+FT   HELIX       249    252
+FT   HELIX       265    273
+FT   HELIX       278    290
+FT   HELIX       293    300
+FT   HELIX       314    347
+FT   HELIX       353    359
+FT   STRAND      361    364
+FT   HELIX       370    380
+FT   HELIX       387    389
+FT   HELIX       391    414
+FT   HELIX       419    431
+FT   HELIX       438    449
+FT   STRAND      455    458
+FT   STRAND      460    462
+SQ   SEQUENCE   468 AA;  51481 MW;  62A32C84DC596D86 CRC64;
+     MSKQQIGVVG MAVMGRNLAL NIESRGYTVS IFNRSREKTE EVIAENPGKK LVPYYTVKEF
+     VESLETPRRI LLMVKAGAGT DAAIDSLKPY LDKGDIIIDG GNTFFQDTIR RNRELSAEGF
+     NFIGTGVSGG EEGALKGPSI MPGGQKEAYE LVAPILTKIA AVAEDGEPCV TYIGADGAGH
+     YVKMVHNGIE YGDMQLIAEA YSLLKGGLNL TNEELAQTFT EWNNGELSSY LIDITKDIFT
+     KKDEDGNYLV DVILDEAANK GTGKWTSQSA LDLGEPLSLI TESVFARYIS SLKDQRVAAS
+     KVLSGPQAQP AGDKAEFIEK VRRALYLGKI VSYAQGFSQL RAASEEYNWD LNYGEIAKIF
+     RAGCIIRAQF LQKITDAYAE NPQIANLLLA PYFKQIADDY QQALRDVVAY AVQNGIPVPT
+     FSAAVAYYDS YRAAVLPANL IQAQRDYFGA HTYKRIDKEG VFHTEWLD
+//
+ID   6PGL_ECOLI              Reviewed;         331 AA.
+AC   P52697; P75760;
+DT   01-OCT-1996, integrated into UniProtKB/Swiss-Prot.
+DT   01-NOV-1997, sequence version 2.
+DT   11-JUL-2012, entry version 96.
+DE   RecName: Full=6-phosphogluconolactonase;
+DE            Short=6-P-gluconolactonase;
+DE            Short=Pgl;
+DE            EC=3.1.1.31;
+GN   Name=pgl; Synonyms=ybhE; OrderedLocusNames=b0767, JW0750;
+OS   Escherichia coli (strain K12).
+OC   Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacteriales;
+OC   Enterobacteriaceae; Escherichia.
+OX   NCBI_TaxID=83333;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [GENOMIC DNA].
+RC   STRAIN=K12;
+RX   MEDLINE=95394784; PubMed=7665460;
+RA   Maupin-Furlow J.A., Rosentel J.K., Lee J.H., Deppenmeier U.,
+RA   Gunsalus R.P., Shanmugam K.T.;
+RT   "Genetic analysis of the modABCD (molybdate transport) operon of
+RT   Escherichia coli.";
+RL   J. Bacteriol. 177:4851-4856(1995).
+RN   [2]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / W3110 / ATCC 27325 / DSM 5911;
+RX   MEDLINE=97061202; PubMed=8905232; DOI=10.1093/dnares/3.3.137;
+RA   Oshima T., Aiba H., Baba T., Fujita K., Hayashi K., Honjo A.,
+RA   Ikemoto K., Inada T., Itoh T., Kajihara M., Kanai K., Kashimoto K.,
+RA   Kimura S., Kitagawa M., Makino K., Masuda S., Miki T., Mizobuchi K.,
+RA   Mori H., Motomura K., Nakamura Y., Nashimoto H., Nishio Y., Saito N.,
+RA   Sampei G., Seki Y., Tagami H., Takemoto K., Wada C., Yamamoto Y.,
+RA   Yano M., Horiuchi T.;
+RT   "A 718-kb DNA sequence of the Escherichia coli K-12 genome
+RT   corresponding to the 12.7-28.0 min region on the linkage map.";
+RL   DNA Res. 3:137-155(1996).
+RN   [3]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / MG1655 / ATCC 47076;
+RX   MEDLINE=97426617; PubMed=9278503; DOI=10.1126/science.277.5331.1453;
+RA   Blattner F.R., Plunkett G. III, Bloch C.A., Perna N.T., Burland V.,
+RA   Riley M., Collado-Vides J., Glasner J.D., Rode C.K., Mayhew G.F.,
+RA   Gregor J., Davis N.W., Kirkpatrick H.A., Goeden M.A., Rose D.J.,
+RA   Mau B., Shao Y.;
+RT   "The complete genome sequence of Escherichia coli K-12.";
+RL   Science 277:1453-1474(1997).
+RN   [4]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / W3110 / ATCC 27325 / DSM 5911;
+RX   PubMed=16738553; DOI=10.1038/msb4100049;
+RA   Hayashi K., Morooka N., Yamamoto Y., Fujita K., Isono K., Choi S.,
+RA   Ohtsubo E., Baba T., Wanner B.L., Mori H., Horiuchi T.;
+RT   "Highly accurate genome sequences of Escherichia coli K-12 strains
+RT   MG1655 and W3110.";
+RL   Mol. Syst. Biol. 2:E1-E5(2006).
+RN   [5]
+RP   IDENTIFICATION.
+RA   Rudd K.E.;
+RL   Unpublished observations (MAR-1996).
+RN   [6]
+RP   FUNCTION.
+RC   STRAIN=K12 / MG1655 / ATCC 47076;
+RX   PubMed=15576773; DOI=10.1128/JB.186.24.8248-8253.2004;
+RA   Thomason L.C., Court D.L., Datta A.R., Khanna R., Rosner J.L.;
+RT   "Identification of the Escherichia coli K-12 ybhE gene as pgl,
+RT   encoding 6-phosphogluconolactonase.";
+RL   J. Bacteriol. 186:8248-8253(2004).
+RN   [7]
+RP   ACETYLATION [LARGE SCALE ANALYSIS] AT LYS-287, AND MASS SPECTROMETRY.
+RC   STRAIN=K12 / JW1106, and K12 / MG1655 / ATCC 47076;
+RX   PubMed=18723842; DOI=10.1074/mcp.M800187-MCP200;
+RA   Zhang J., Sprung R., Pei J., Tan X., Kim S., Zhu H., Liu C.F.,
+RA   Grishin N.V., Zhao Y.;
+RT   "Lysine acetylation is a highly abundant and evolutionarily conserved
+RT   modification in Escherichia coli.";
+RL   Mol. Cell. Proteomics 8:215-225(2009).
+RN   [8]
+RP   X-RAY CRYSTALLOGRAPHY (2.0 ANGSTROMS).
+RA   Lima C.D., Kniewel R., Solorzano V., Wu J.;
+RT   "Structure of a putative 7-bladed propeller isomerase.";
+RL   Submitted (NOV-2003) to the PDB data bank.
+CC   -!- FUNCTION: Catalyzes the hydrolysis of 6-phosphogluconolactone to
+CC       6-phosphogluconate.
+CC   -!- CATALYTIC ACTIVITY: 6-phospho-D-glucono-1,5-lactone + H(2)O = 6-
+CC       phospho-D-gluconate.
+CC   -!- PATHWAY: Carbohydrate degradation; pentose phosphate pathway; D-
+CC       ribulose 5-phosphate from D-glucose 6-phosphate (oxidative stage):
+CC       step 2/3.
+CC   -!- SIMILARITY: Belongs to the cycloisomerase 2 family.
+CC   -!- SEQUENCE CAUTION:
+CC       Sequence=U27192; Type=Frameshift; Positions=110;
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see http://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution-NoDerivs License
+CC   -----------------------------------------------------------------------
+DR   EMBL; U27192; -; NOT_ANNOTATED_CDS; Genomic_DNA.
+DR   EMBL; U00096; AAC73854.1; -; Genomic_DNA.
+DR   EMBL; AP009048; BAA35431.1; -; Genomic_DNA.
+DR   PIR; G64812; G64812.
+DR   RefSeq; NP_415288.1; NC_000913.2.
+DR   PDB; 1RI6; X-ray; 2.00 A; A=2-331.
+DR   PDBsum; 1RI6; -.
+DR   ProteinModelPortal; P52697; -.
+DR   SMR; P52697; 1-331.
+DR   IntAct; P52697; 5.
+DR   2DBase-Ecoli; P52697; -.
+DR   PRIDE; P52697; -.
+DR   EnsemblBacteria; EBESCT00000004763; EBESCP00000004763; EBESCG00000003889.
+DR   EnsemblBacteria; EBESCT00000018358; EBESCP00000017649; EBESCG00000017412.
+DR   GeneID; 946398; -.
+DR   GenomeReviews; AP009048_GR; JW0750.
+DR   GenomeReviews; U00096_GR; b0767.
+DR   KEGG; eco:b0767; -.
+DR   PATRIC; 32116735; VBIEscCol129921_0793.
+DR   EchoBASE; EB3020; -.
+DR   EcoGene; EG13231; pgl.
+DR   eggNOG; COG2706; -.
+DR   HOGENOM; HOG000257418; -.
+DR   KO; K07404; -.
+DR   OMA; TCWAADI; -.
+DR   ProtClustDB; PRK11028; -.
+DR   BioCyc; EcoCyc:6PGLUCONOLACT-MONOMER; -.
+DR   BioCyc; MetaCyc:6PGLUCONOLACT-MONOMER; -.
+DR   EvolutionaryTrace; P52697; -.
+DR   Genevestigator; P52697; -.
+DR   GO; GO:0017057; F:6-phosphogluconolactonase activity; IDA:EcoliWiki.
+DR   GO; GO:0006098; P:pentose-phosphate shunt; IEA:InterPro.
+DR   Gene3D; G3DSA:2.130.10.10; WD40/YVTN_repeat-like; 1.
+DR   HAMAP; MF_01605; 6P-gluconolactonase; 1; -.
+DR   InterPro; IPR022528; 6-phosphogluconolactonase_YbhE.
+DR   InterPro; IPR019405; Lactonase_7-beta_prop.
+DR   InterPro; IPR011045; N2O_reductase_N.
+DR   InterPro; IPR015943; WD40/YVTN_repeat-like_dom.
+DR   Pfam; PF10282; Lactonase; 1.
+DR   SUPFAM; SSF50974; N2O_reductase_N; 1.
+PE   1: Evidence at protein level;
+KW   3D-structure; Acetylation; Carbohydrate metabolism; Complete proteome;
+KW   Glucose metabolism; Hydrolase; Reference proteome.
+FT   CHAIN         1    331       6-phosphogluconolactonase.
+FT                                /FTId=PRO_0000171132.
+FT   MOD_RES     287    287       N6-acetyllysine.
+FT   CONFLICT     37     52       QVQPMVVSPDKRYLYV -> RCSRWWSARTNVISML (in
+FT                                Ref. 1).
+FT   CONFLICT    319    331       VGQGPMWVVVNAH -> SGRDQCGWWLTHTKR (in Ref.
+FT                                1).
+FT   STRAND        2      9
+FT   HELIX        10     12
+FT   STRAND       14     20
+FT   STRAND       26     33
+FT   STRAND       41     43
+FT   STRAND       47     54
+FT   TURN         55     58
+FT   STRAND       59     65
+FT   TURN         67     69
+FT   STRAND       72     79
+FT   STRAND       85     89
+FT   STRAND       93    100
+FT   TURN        101    104
+FT   STRAND      105    112
+FT   STRAND      115    123
+FT   STRAND      138    145
+FT   HELIX       146    148
+FT   STRAND      150    156
+FT   STRAND      162    171
+FT   STRAND      178    183
+FT   STRAND      187    194
+FT   TURN        195    198
+FT   STRAND      199    206
+FT   STRAND      213    219
+FT   STRAND      231    236
+FT   STRAND      240    247
+FT   TURN        248    251
+FT   STRAND      252    258
+FT   STRAND      265    272
+FT   STRAND      274    276
+FT   STRAND      280    282
+FT   STRAND      286    292
+FT   TURN        294    296
+FT   STRAND      298    305
+FT   TURN        306    309
+FT   STRAND      310    318
+FT   STRAND      320    322
+FT   STRAND      325    331
+SQ   SEQUENCE   331 AA;  36308 MW;  D731044CFCF31A8F CRC64;
+     MKQTVYIASP ESQQIHVWNL NHEGALTLTQ VVDVPGQVQP MVVSPDKRYL YVGVRPEFRV
+     LAYRIAPDDG ALTFAAESAL PGSPTHISTD HQGQFVFVGS YNAGNVSVTR LEDGLPVGVV
+     DVVEGLDGCH SANISPDNRT LWVPALKQDR ICLFTVSDDG HLVAQDPAEV TTVEGAGPRH
+     MVFHPNEQYA YCVNELNSSV DVWELKDPHG NIECVQTLDM MPENFSDTRW AADIHITPDG
+     RHLYACDRTA SLITVFSVSE DGSVLSKEGF QPTETQPRGF NVDHSGKYLI AAGQKSHHIS
+     VYEIVGEQGL LHEKGRYAVG QGPMWVVVNA H
+//
+ID   AAEA_ECOLI              Reviewed;         310 AA.
+AC   P46482; Q2M8X2;
+DT   01-NOV-1995, integrated into UniProtKB/Swiss-Prot.
+DT   01-NOV-1995, sequence version 1.
+DT   11-JUL-2012, entry version 92.
+DE   RecName: Full=p-hydroxybenzoic acid efflux pump subunit AaeA;
+DE            Short=pHBA efflux pump protein A;
+GN   Name=aaeA; Synonyms=yhcQ; OrderedLocusNames=b3241, JW3210;
+OS   Escherichia coli (strain K12).
+OC   Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacteriales;
+OC   Enterobacteriaceae; Escherichia.
+OX   NCBI_TaxID=83333;
+RN   [1]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / MG1655 / ATCC 47076;
+RX   MEDLINE=97426617; PubMed=9278503; DOI=10.1126/science.277.5331.1453;
+RA   Blattner F.R., Plunkett G. III, Bloch C.A., Perna N.T., Burland V.,
+RA   Riley M., Collado-Vides J., Glasner J.D., Rode C.K., Mayhew G.F.,
+RA   Gregor J., Davis N.W., Kirkpatrick H.A., Goeden M.A., Rose D.J.,
+RA   Mau B., Shao Y.;
+RT   "The complete genome sequence of Escherichia coli K-12.";
+RL   Science 277:1453-1474(1997).
+RN   [2]
+RP   NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA].
+RC   STRAIN=K12 / W3110 / ATCC 27325 / DSM 5911;
+RX   PubMed=16738553; DOI=10.1038/msb4100049;
+RA   Hayashi K., Morooka N., Yamamoto Y., Fujita K., Isono K., Choi S.,
+RA   Ohtsubo E., Baba T., Wanner B.L., Mori H., Horiuchi T.;
+RT   "Highly accurate genome sequences of Escherichia coli K-12 strains
+RT   MG1655 and W3110.";
+RL   Mol. Syst. Biol. 2:E1-E5(2006).
+RN   [3]
+RP   INVOLVEMENT IN THE AAEAB EFFLUX SYSTEM.
+RC   STRAIN=K12 / MG1655 / ATCC 47076;
+RX   PubMed=15489430; DOI=10.1128/JB.186.21.7196-7204.2004;
+RA   Van Dyk T.K., Templeton L.J., Cantera K.A., Sharpe P.L.,
+RA   Sariaslani F.S.;
+RT   "Characterization of the Escherichia coli AaeAB efflux pump: a
+RT   metabolic relief valve?";
+RL   J. Bacteriol. 186:7196-7204(2004).
+CC   -!- SUBCELLULAR LOCATION: Cell inner membrane; Single-pass membrane
+CC       protein (Potential).
+CC   -!- INDUCTION: Positively coregulated with aaeB and aaeX by AaeR.
+CC   -!- MISCELLANEOUS: Both AaeA and AaeB are required for the function of
+CC       the efflux system.
+CC   -!- SIMILARITY: Belongs to the membrane fusion protein (MFP)
+CC       (TC 8.A.1) family.
+CC   -----------------------------------------------------------------------
+CC   Copyrighted by the UniProt Consortium, see http://www.uniprot.org/terms
+CC   Distributed under the Creative Commons Attribution-NoDerivs License
+CC   -----------------------------------------------------------------------
+DR   EMBL; U18997; AAA58043.1; -; Genomic_DNA.
+DR   EMBL; U00096; AAC76273.1; -; Genomic_DNA.
+DR   EMBL; AP009048; BAE77284.1; -; Genomic_DNA.
+DR   PIR; C65116; C65116.
+DR   RefSeq; NP_417708.1; NC_000913.2.
+DR   ProteinModelPortal; P46482; -.
+DR   SMR; P46482; 39-293.
+DR   DIP; DIP-12289N; -.
+DR   IntAct; P46482; 2.
+DR   MINT; MINT-1252694; -.
+DR   TCDB; 8.A.1.7.1; membrane fusion protein (MFP) family.
+DR   PRIDE; P46482; -.
+DR   EnsemblBacteria; EBESCT00000002232; EBESCP00000002232; EBESCG00000001829.
+DR   EnsemblBacteria; EBESCT00000017571; EBESCP00000016862; EBESCG00000016627.
+DR   GeneID; 947748; -.
+DR   GenomeReviews; AP009048_GR; JW3210.
+DR   GenomeReviews; U00096_GR; b3241.
+DR   KEGG; eco:b3241; -.
+DR   PATRIC; 32121908; VBIEscCol129921_3338.
+DR   EchoBASE; EB2674; -.
+DR   EcoGene; EG12823; aaeA.
+DR   eggNOG; COG1566; -.
+DR   HOGENOM; HOG000112073; -.
+DR   KO; K15548; -.
+DR   OMA; NPTFAWV; -.
+DR   ProtClustDB; PRK10559; -.
+DR   BioCyc; EcoCyc:G7686-MONOMER; -.
+DR   Genevestigator; P46482; -.
+DR   GO; GO:0016021; C:integral to membrane; IEA:UniProtKB-KW.
+DR   GO; GO:0005886; C:plasma membrane; IEA:UniProtKB-SubCell.
+DR   GO; GO:0046942; P:carboxylic acid transport; IGI:EcoliWiki.
+DR   GO; GO:0042221; P:response to chemical stimulus; IDA:EcoliWiki.
+DR   GO; GO:0055085; P:transmembrane transport; IEA:InterPro.
+DR   HAMAP; MF_01544; AaeA; 1; -.
+DR   InterPro; IPR022871; PHBA_efflux_pump_AaeA.
+DR   InterPro; IPR006143; RND_pump_MFP.
+DR   Pfam; PF00529; HlyD; 2.
+DR   TIGRFAMs; TIGR01730; RND_mfp; 1.
+PE   2: Evidence at transcript level;
+KW   Cell inner membrane; Cell membrane; Complete proteome; Membrane;
+KW   Reference proteome; Transmembrane; Transmembrane helix; Transport.
+FT   CHAIN         1    310       p-hydroxybenzoic acid efflux pump subunit
+FT                                AaeA.
+FT                                /FTId=PRO_0000201850.
+FT   TRANSMEM     12     32       Helical; (Potential).
+SQ   SEQUENCE   310 AA;  34775 MW;  6E0232D459DC2757 CRC64;
+     MKTLIRKFSR TAITVVLVIL AFIAIFNAWV YYTESPWTRD ARFSADVVAI APDVSGLITQ
+     VNVHDNQLVK KGQILFTIDQ PRYQKALEEA QADVAYYQVL AQEKRQEAGR RNRLGVQAMS
+     REEIDQANNV LQTVLHQLAK AQATRDLAKL DLERTVIRAP ADGWVTNLNV YTGEFITRGS
+     TAVALVKQNS FYVLAYMEET KLEGVRPGYR AEITPLGSNK VLKGTVDSVA AGVTNASSTR
+     DDKGMATIDS NLEWVRLAQR VPVRIRLDNQ QENIWPAGTT ATVVVTGKQD RDESQDSFFR
+     KMAHRLREFG
+//
+

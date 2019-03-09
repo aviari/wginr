@@ -1,0 +1,6 @@
+# Changes by AV
+# diffs are in DIFF_AV
+#
+12/29/2018 : modified -@ (number of threads) option: default is now set to maximum.
+12/29/2018 : modified -@ (number of threads) option: now accept <0 value
+

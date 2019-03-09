@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# -------------------------------------------------\n# $Id: lx.algebra.r 120 2016-10-29 07:45:45Z viari $\n# lx linear algebra utilities\n#\n\n# -------------------------------------------------\n#' generalized matrix cross-product\n#' @description\n#' compute cross-product of conformable matrices using any function\n#' of row and col.\n#' @param x nxm numerical matrix\n#' @param y mxn numerical matrix (if NULL then y = t(x))\n#' @param FUN function called for each row and col as \\code{FUN(row, col,...)}\n#' @param ... other parameters to FUN\n#' @return nxn numerical matrix. where entry (i,j) is \\code{FUN(x[i,], y[,j],...)}\n#' @note usual matrix crosproduct corresponds to \\code{FUN=function(x, y) sum(x*y)}\n#' (see examples)\n#' @seealso \\link{crossprod}\n#' @examples\n#' x <- matrix(1:10, ncol=2)\n#' # usual crossproduct (not efficient)\n#' lx.crossprod(t(x), x, function(x, y) sum(x*y))\n#' # this is the same as (more efficient):\n#' t(x) %*% x\n#' # and the same as (more efficient):\n#' crossprod(x)\n#' # cross product with max\n#' lx.crossprod(t(x), FUN=function(x, y) max(x*y))\n#\nlx.crossprod <- function(x, y=NULL, FUN, ...) {\n  if (missing(y)) y <- t(x)\n  res <- apply(x, 1, function(row) {\n    apply(y, 2, function(col) {\n      FUN(row, col, ...)\n    })\n  })\n  res\n}\n\n# -------------------------------------------------\n#' get matrix upper triangle as vector\n#' @description\n#' get matrix upper triangle as vector\n#' @param x nxn square numerical matrix\n#' @param diag logical should the diagonal be included?\n#' @param bycol logical order result by columns\n#' @return numerical vector of matrix upper triangle\n#' @note if matrix is not square, a warning is emitted but\n#' result (on the smaller dimension) is still returned\n#' @seealso \\link{upper.tri}, \\link{lx.vect2upper}\n#' @examples\n#' x <- matrix(1:16, ncol=4)\n#' y <- lx.upper2vect(x, diag=TRUE)\n#' xx <- lx.vect2upper(y, diag=TRUE)\n#\nlx.upper2vect <-function(x, diag=FALSE, bycol=TRUE) {\n  lx.warnif((nrow(x) != ncol(x)), \"matrix should be square\")\n  if (bycol)\n    x[upper.tri(x, diag=diag)]\n  else\n    t(x)[lower.tri(x, diag=diag)]\n}\n\n# -------------------------------------------------\n#' make matrix from upper triangle vector\n#' @description\n#' this is the inverse of \\link{lx.upper2vect}\n#' @param x numerical vector\n#' @param diag logical is the diagonal included in x? (see \\link{lx.upper2vect})\n#' @param bycol logical is x ordered by columns? (see \\link{lx.upper2vect})\n#' @param symmetrize logical should result be symmetrized\n#' @param na.val numerical value for NA (see note)\n#' @return numerical matrix\n#' @note undefined values (i.e. diagonal if diag=FALSE and lower matrix if symmetrize=FALSE)\n#' are set to na.val\n#' @seealso \\link{lx.upper2vect}\n#' @examples\n#' x <- matrix(1:16, ncol=4)\n#' y <- lx.upper2vect(x, diag=TRUE)\n#' xx <- lx.vect2upper(y, diag=TRUE)\n#\nlx.vect2upper <- function(x, diag=FALSE, bycol=TRUE, symmetrize=TRUE, na.val=NA) {\n  n <- ((1 - 2*diag) + sqrt(1 + 8*length(x))) / 2\n  mat <- matrix(0, n, n)\n  if (bycol) {\n    mat[upper.tri(mat, diag=diag)] <- x\n  }\n  else {\n    mat[lower.tri(mat, diag=diag)] <- x\n    mat <- t(mat)\n  }\n  if (symmetrize)\n    mat <- mat + t(mat) - diag(diag(mat))\n  else\n    mat[lower.tri(mat)] <- na.val\n  if (! diag)\n    diag(mat) <- na.val\n  mat\n}\n",
+    "created" : 1509659857125.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "175464730",
+    "id" : "23CE2568",
+    "lastKnownWriteTime" : 1495375219,
+    "last_content_update" : 1495375219,
+    "path" : "~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/lx/R/lx.algebra.r",
+    "project_path" : "R/lx.algebra.r",
+    "properties" : {
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

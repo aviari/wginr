@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "exportPattern(\"^[^\\\\.]\")\nimport(\"methods\")\nimport(\"compiler\")\nimport(\"graphics\")\nimport(\"grDevices\")\nimport(\"stats\")\nimport(\"utils\")\n",
+    "created" : 1502745586458.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "783236763",
+    "id" : "32CAA6FA",
+    "lastKnownWriteTime" : 1502745634,
+    "last_content_update" : 1502745634193,
+    "path" : "~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/lx/NAMESPACE",
+    "project_path" : "NAMESPACE",
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_namespace"
+}

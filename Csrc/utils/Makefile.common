@@ -1,0 +1,50 @@
+#
+# $Id: Makefile.common 446 2019-01-08 23:35:24Z viari $
+#
+
+# -------------------------------------
+# some standard commands
+#
+
+SHELL   = /bin/sh
+
+CC      = gcc
+CP      = cp
+AR      = ar
+RM      = rm
+RANLIB  = ranlib
+MKDIR   = mkdir
+
+# -------------------------------------
+# detect OS
+#
+# note add -DALIGN_MEMORY on proc that need memory alignement
+# of long pointers (e.g ARM, not needed on Intel)
+#
+
+UNAME := $(shell uname -s)
+ifeq ($(UNAME), Linux)
+  OSFLAGS = -DLINUX -DHAVE_MEMSET -DHAVE_SYSTIME
+endif
+ifeq ($(UNAME), Darwin)
+  OSFLAGS = -DOSX -DHAVE_MEMSET -DHAVE_SYSTIME
+endif
+
+ifndef _SCRIPTDIR
+  _SCRIPTDIR := ../../scripts
+endif
+
+PRTNAME := $(shell $(_SCRIPTDIR)/guessport)
+
+# -------------------------------------
+# redefine some default flags to be
+# more strict
+#
+
+CPPFLAGS +=   -Wall
+
+# -------------------------------------
+# standard flags
+#
+
+CFLAGS = -g -O2 $(OSFLAGS)

@@ -1,0 +1,14 @@
+Package: rbgzf
+Type: Package
+Title: BGZF (Blocked GNU Zip format) library
+Version: 1.0
+Date: 2016-10-02
+Author: Alain Viari
+Maintainer: <alain.viari@inria.fr>
+Description: a (thin) interface between R and the C bgzf implementation
+             of the htslib library available at https://github.com/samtools/htslib.
+License: GPL
+Depends:
+    methods
+LazyData: TRUE
+RoxygenNote: 5.0.1

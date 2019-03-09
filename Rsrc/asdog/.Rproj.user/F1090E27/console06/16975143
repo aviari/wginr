@@ -1,0 +1,79 @@
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdog[?1034hsapiens:asdog viari$ [Ksapiens:asdog viari$ ls
+DESCRIPTION	R		data		man
+NAMESPACE	asdog.Rproj	inst		test.csh
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdogsapiens:asdog viari$ pwd
+/Users/viari/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdog
+ls -ltrh
+total 512168
+drwxr-xr-x   3 viari  helix   102B 21 mai  2017 inst
+-rwxr-xr-x@  1 viari  helix   1,1K  7 jui 09:16 test.csh
+drwxr-xr-x   6 viari  helix   204B 19 jul 12:58 data
+-rw-r--r--   1 viari  helix    43B 23 jul 12:09 NAMESPACE
+drwxr-xr-x  10 viari  helix   340B 31 jul 17:41 man
+-rw-r--r--   1 viari  helix   336B 18 aoû 12:59 DESCRIPTION
+drwxr-xr-x  29 viari  helix   986B  2 nov 22:25 R
+-rw-r--r--   1 viari  helix   250M 25 nov 02:04 toto.rds
+-rw-r--r--   1 viari  helix   333B 25 nov 02:04 asdog.Rproj
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdogsapiens:asdog viari$ ls -ltrh
+total 260320
+drwxr-xr-x   3 viari  helix   102B 21 mai  2017 inst
+-rwxr-xr-x@  1 viari  helix   1,1K  7 jui 09:16 test.csh
+drwxr-xr-x   6 viari  helix   204B 19 jul 12:58 data
+-rw-r--r--   1 viari  helix    43B 23 jul 12:09 NAMESPACE
+drwxr-xr-x  10 viari  helix   340B 31 jul 17:41 man
+-rw-r--r--   1 viari  helix   336B 18 aoû 12:59 DESCRIPTION
+drwxr-xr-x  29 viari  helix   986B  2 nov 22:25 R
+-rw-r--r--   1 viari  helix   333B 25 nov 02:04 asdog.Rproj
+-rw-r--r--   1 viari  helix    51M 25 nov 02:08 toto.rds
+-rw-r--r--   1 viari  helix    76M 25 nov 02:08 toto.fea
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdogsapiens:asdog viari$ ls -ltrh
+total 416576
+drwxr-xr-x   3 viari  helix   102B 21 mai  2017 inst
+-rwxr-xr-x@  1 viari  helix   1,1K  7 jui 09:16 test.csh
+drwxr-xr-x   6 viari  helix   204B 19 jul 12:58 data
+-rw-r--r--   1 viari  helix    43B 23 jul 12:09 NAMESPACE
+drwxr-xr-x  10 viari  helix   340B 31 jul 17:41 man
+-rw-r--r--   1 viari  helix   336B 18 aoû 12:59 DESCRIPTION
+drwxr-xr-x  29 viari  helix   986B  2 nov 22:25 R
+-rw-r--r--   1 viari  helix   333B 25 nov 02:04 asdog.Rproj
+-rw-r--r--   1 viari  helix    51M 25 nov 02:08 toto.rds
+-rw-r--r--   1 viari  helix    76M 25 nov 02:21 toto.fst
+-rw-r--r--   1 viari  helix    76M 25 nov 02:21 toto.fea
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdogsapiens:asdog viari$ ls -ltrh[Kls -ltrh
+total 359856
+drwxr-xr-x   3 viari  helix   102B 21 mai  2017 inst
+-rwxr-xr-x@  1 viari  helix   1,1K  7 jui 09:16 test.csh
+drwxr-xr-x   6 viari  helix   204B 19 jul 12:58 data
+-rw-r--r--   1 viari  helix    43B 23 jul 12:09 NAMESPACE
+drwxr-xr-x  10 viari  helix   340B 31 jul 17:41 man
+-rw-r--r--   1 viari  helix   336B 18 aoû 12:59 DESCRIPTION
+drwxr-xr-x  29 viari  helix   986B  2 nov 22:25 R
+-rw-r--r--   1 viari  helix   333B 25 nov 02:04 asdog.Rproj
+-rw-r--r--   1 viari  helix    51M 25 nov 02:08 toto.rds
+-rw-r--r--   1 viari  helix    76M 25 nov 02:21 toto.fea
+-rw-r--r--   1 viari  helix    49M 25 nov 02:25 toto.fst
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdogsapiens:asdog viari$ ls -ltrh
+total 468800
+drwxr-xr-x   3 viari  helix   102B 21 mai  2017 inst
+-rwxr-xr-x@  1 viari  helix   1,1K  7 jui 09:16 test.csh
+drwxr-xr-x   6 viari  helix   204B 19 jul 12:58 data
+-rw-r--r--   1 viari  helix    43B 23 jul 12:09 NAMESPACE
+drwxr-xr-x  10 viari  helix   340B 31 jul 17:41 man
+-rw-r--r--   1 viari  helix   336B 18 aoû 12:59 DESCRIPTION
+drwxr-xr-x  29 viari  helix   986B  2 nov 22:25 R
+-rw-r--r--   1 viari  helix   333B 25 nov 02:04 asdog.Rproj
+-rw-r--r--   1 viari  helix    76M 25 nov 02:21 toto.fea
+-rw-r--r--   1 viari  helix    76M 25 nov 02:33 toto.fst
+-rw-r--r--   1 viari  helix    76M 25 nov 02:34 toto.rds
+pwd
+/Users/viari/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdog
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdogsapiens:asdog viari$ 
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdogsapiens:asdog viari$ 
+
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdogsapiens:asdog viari$ pwd
+/Users/viari/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdog
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdogsapiens:asdog viari$ cd R
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdog/Rsapiens:R viari$ grep 'asdog.sample.bygc' *.r
+asdog.gcmodel.build.r:asdog.sample.bygc <- function(handle.basta, regions, 
+asdog.gcmodel.build.r:    sampled <- asdog.sample.bygc(basta, regions,
+]0;~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdog/Rsapiens:R viari$ 

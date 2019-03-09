@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1525624840230.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "88BD093A",
+    "lastKnownWriteTime" : 1509658925,
+    "last_content_update" : 1509658925,
+    "path" : "~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/scripts/asdog.segment.r",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "139,25",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 16,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,11 @@
+#!/usr/bin/env Rscript
+#
+# make R utility : remove package (dev mode only)
+#
+# usage: devclean <packages>
+#
+
+x <- sapply(commandArgs(TRUE), remove.packages)
+
+quit(save='no', status=0)
+

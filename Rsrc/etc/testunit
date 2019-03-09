@@ -1,0 +1,31 @@
+#!/usr/bin/env Rscript
+#
+# make R utility : unit test package
+#
+# usage: testunit package=<package>  
+#        [other arguments to lx.require]
+#
+#
+
+require(lx)
+require(methods)
+
+args <- lx.getargs()
+
+.quit <- function(status) {
+  quit(save='no', status=status)
+}
+
+if (is.null(args$package))
+  .quit(2)
+
+if (! (ok <- lx.require(testthat, load=TRUE)))
+  .quit(1)
+
+setwd(args$package)
+
+report <- test_dir("inst/tests/")
+
+ok <- sum(as.data.frame(report)$failed) == 0
+
+.quit(ifelse(ok, 0, 1))

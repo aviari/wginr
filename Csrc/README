@@ -1,0 +1,44 @@
+# $Id: README 396 2019-01-02 22:53:10Z viari $
+
+this directory contains C sources for samtools and associated
+utilities like bgzip, bam2baf and fasta2basta.
+
+the samtools distribution has been slightly modified
+(mostly cosmetic), please see CHANGES_AV and DIFF_AV
+in htslib and samtools directories for changes.
+
+most important changes are :
+
+
+requirements
+--------------
+
+- a gcc compiler (tested with 6.4 to 8.2.0)
+- a gnu compatible make (tested gmake 3.81)
+
+also see below for other dependencies
+
+to compile
+--------------
+
+$ make all 
+$ make install
+
+upon succesfull completion, binaries will be copied
+to ../ports/<portname>/bin
+
+other dependencies
+--------------
+
+Samtools and htslib have several optional dependencies, please
+see htslib/INSTALL and samtools/INSTALL for a complete list.
+
+Two of  them are BZ2 (libbz2) and LZMA (liblzma).
+By default, we turn them off since they are not necessary
+to our binaries. But keep in mind that the generated
+binaries (e.g. bgzip) may not work with some CRAM files.
+
+If you have these libraries (libbz2 and liblzma) already
+installed on your system, then run 
+
+make WITH_BZ2=yes WITH_LZMA=yes all 

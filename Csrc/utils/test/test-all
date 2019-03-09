@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# $Id: test-all 396 2019-01-02 22:53:10Z viari $
+#
+# default test driver
+#
+
+st=0
+for prg in $@; do
+  if [ -x ${prg}.sh ]; then
+    ./$prg.sh $prg
+  else
+    `dirname -- $0`/test-single $prg
+  fi
+  if [ $? -ne 0 ]; then st=`expr $st + 1`; fi
+done
+
+if [ $st -eq 0 ]; then
+  echo "all tests ok"
+else
+  echo "[0;31m${st} test failure(s)[m"
+fi
+
+exit $st
+
+

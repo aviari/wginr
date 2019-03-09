@@ -1,0 +1,6 @@
+
+- gcmodel: if select region too small (< sample.size) increase
+
+- gcmodel : add bp in delta label
+
+

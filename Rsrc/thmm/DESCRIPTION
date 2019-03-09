@@ -1,0 +1,14 @@
+Package: thmm
+Type: Package
+Title: a tiny (but robust) discrete time univariate HMM library
+Version: 1.1
+Date: 2017-11-18
+Author: Alain Viari
+Maintainer: <alain.viari@inria.fr>
+Description: a small HMM library for discrete time univariate models
+             with careful handling of underflow.
+License: GPL
+Depends:
+    methods
+LazyData: TRUE
+RoxygenNote: 6.0.1

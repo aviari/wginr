@@ -1,0 +1,155 @@
+-----------------
+-0- Presentation
+-----------------
+
+WGInR ('Whole Genomes In R') are C and R tools 
+from the Lyon Cancer Bioinformatics Facility
+to manipulate Whole Genomes in R.
+
+-----------------
+-1- Distribution
+-----------------
+
+Csrc    : C sources (for samtools, bam2baf, ...)
+Rsrc    : R sources (lx, xlx, asdog, ...)
+Ssrc    : scripts utilities (q.sub zargs)
+Usrc    : some additional utilities (agrep, apat, mawk, ...)
+
+ports   : libs and binaries for various ports
+scripts : scripts
+docs    : some (rudimentary) docs
+
+Archives : archives of already compiled ports (dev only)
+
+-----------------
+-2- Requirements
+-----------------
+
+required software
+-------
+ - gcc compiler     version >= 4.6          gcc --version
+ - gnu make         version >= 3.81         make --version
+ - R                version >= 3.0.1        R --version
+ - latex            version >= 2010         pdflatex --version
+
+note: usually texlive (including pdflatex) is installed with R so you
+don't need to worry about the last requirement.
+
+optional software 
+-------
+  - curses         (libcurses.*)  (see see '-5- Optional Setup' below)
+
+you can check your config by running :
+
+  scripts/checkconfig
+
+-----------------
+-3- Compilation & Installation
+-----------------
+note: you do *not* need to be root to compile and install,
+since the installation will be done in user space only.
+
+at the root of distribution type:
+
+make
+
+if everything runs fine then type:
+
+make install
+
+R will try to install packages from CRAN or the local directory
+Rsrc/packages/source.
+
+In case of trouble, see '-5- Optional Setup' below
+
+Finally some (rudimentary) tests can be run by:
+
+make test
+
+In addition :
+
+make clean     cleanup temporary installation files
+make distclean cleanup and restore initial distrib (dev only)
+
+(note for dev: please do a 'make distclean' before commiting)
+
+-----------------
+-4- Optional utilities
+-----------------
+
+some optional tools (mawk, agrap, apat, ...) are available
+in Usrc but not installed by default.
+
+to add them :
+
+make option
+
+this will compile and install the binaries
+
+-----------------
+-5- Optional Setup
+-----------------
+
+curses
+-------
+curses is needed by some (viewing) utilities in samtools.
+if curses is not installed then Makefile in samtools should detect
+and skip it (I hope so actually... didn't try yet).
+
+R packages directory
+-------
+if 'make install' complains when installing R packages, this
+is probably because you don't have write access to
+the system-wide package directory. To install R packages at your
+home directory:
+
+(csh)
+mkdir $home/R
+setenv R_LIBS $home/R
+
+(bash)
+mkdir $home/R
+export R_LIBS=$home/R
+
+note: you may change the name of the repository to whatever
+you prefer (e.g. $home/MyRlibs) as long as you declare it in R_LIBS.
+
+R Cran
+-------
+'make install' will possibly download some additionnal R packages
+from CRAN. The default CRAN repository is : http://cran.univ-lyon1.fr
+to change it,
+edit Rsrc/Makefile
+and change CRAN_REPOS = http://cran.univ-lyon1.fr to whatever you prefer.
+
+If the CRAN repository cannot be used for any reason
+(no internet connection, package has been removed), then 
+the installation will proceed from local copies of the packages
+located in Rsrc/packages/source. However, it sounds always better
+to use the CRAN fresher versions.
+
+In case of trouble with R package installation,
+please read: docs/Readme_RPackages.txt
+
+-----------------
+-6- Path setup
+-----------------
+
+Add the following directories to your path:
+
+<WGInRRoot>/scripts
+
+<WGInRRoot>/ports/<portname>/bin
+
+with <portname>: 
+    x386-linux  :   Linux 64 bits
+    x386-darwin :   MacOSx 64 bits 
+
+to know your <portname>, type:
+    <WGInRRoot>/scripts/guessport
+    
+-----------------
+-7- Usage
+-----------------
+tdb... see docs/Readme_Anthony.txt
+

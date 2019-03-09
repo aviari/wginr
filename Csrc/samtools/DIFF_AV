@@ -1,0 +1,188 @@
+=== bam_addrprg.c
+295a296,298
+>     
+>     (void) finalize_sam_global_opt(&retval->ga);
+>     
+325c328
+<     if (retval->ga.nthreads > 0) {
+---
+>     if (retval->ga.nthreads > 1) {
+=== bam_index.c
+72a73,80
+>     /* [AV] this utility does not make use of sam_opts
+>      *      so we simulate one
+>      */
+>     sam_global_args ga = SAM_GLOBAL_ARGS_INIT;
+>     ga.nthreads = n_threads;
+>     (void) finalize_sam_global_opt(&ga);
+>     n_threads = ga.nthreads;
+>     
+194a203,204
+>     (void) finalize_sam_global_opt(&ga);
+> 
+214c224
+<         if (ga.nthreads)
+---
+>         if (ga.nthreads > 1)
+=== bam_markdup.c
+1007a1008
+>     (void) finalize_sam_global_opt(&ga);
+1027c1028
+<     if (ga.nthreads > 0)  {
+---
+>     if (ga.nthreads > 1)  {
+=== bam_mate.c
+439a440,441
+>     (void) finalize_sam_global_opt(&ga);
+> 
+453c455
+<     if (ga.nthreads > 0) {
+---
+>     if (ga.nthreads > 1) {
+=== bam_md.c
+225a226,227
+>     (void) finalize_sam_global_opt(&ga);
+> 
+253c255
+<     if (ga.nthreads > 0) {
+---
+>     if (ga.nthreads > 1) {
+=== bam_plcmd.c
+42a43
+> #include <htslib/thread_pool.h>
+151a153
+>     htsThreadPool p; //  [AV] added
+369a373,385
+>         
+>         data[i]->p.qsize = 0;
+>         if (conf->ga.nthreads > 1) {
+>             if (!(data[i]->p.pool = hts_tpool_init(conf->ga.nthreads))) {
+>                 fprintf(stderr, "Error creating thread pool\n");
+>                 exit(EXIT_FAILURE);
+>             }
+>             hts_set_opt(data[i]->fp,  HTS_OPT_THREAD_POOL, &data[i]->p);
+>         }
+>         else {
+>             data[i]->p.pool = NULL;
+>         }
+>         
+796a813
+>         if (data[i]->p.pool) hts_tpool_destroy(data[i]->p.pool);
+947c964
+<     sam_global_opt_help(fp, "-.--.-");
+---
+>     sam_global_opt_help(fp, "-.--.@");
+985c1002
+<         SAM_OPT_GLOBAL_OPTIONS('-', 0, '-', '-', 0, '-'),
+---
+>         SAM_OPT_GLOBAL_OPTIONS('-', 0, '-', '-', 0, '@'),
+1037c1054
+<     while ((c = getopt_long(argc, argv, "Agf:r:l:q:Q:uRC:BDSd:L:b:P:po:e:h:Im:F:EG:6OsVvxt:a",lopts,NULL)) >= 0) {
+---
+>     while ((c = getopt_long(argc, argv, "Agf:r:l:q:Q:uRC:BDSd:L:b:P:po:e:h:Im:F:EG:6OsVvxt:a@:",lopts,NULL)) >= 0) {
+1124a1142,1143
+>     (void) finalize_sam_global_opt(&mplp.ga);
+>     
+=== bam_sort.c
+1614c1614,1615
+<                         fn_size+nargcfiles, fn, flag, reg, ga.nthreads,
+---
+>                         fn_size+nargcfiles, fn, flag, reg, 
+>                         (ga.nthreads == 1 ? 0 : ga.nthreads),
+2355c2356
+<         { "threads", required_argument, NULL, '@' },
+---
+> //        { "threads", required_argument, NULL, '@' },
+2379a2381,2382
+>     (void) finalize_sam_global_opt(&ga);
+> 
+2418c2421,2422
+<                             tmpprefix.s, fnout, modeout, max_mem, ga.nthreads,
+---
+>                             tmpprefix.s, fnout, modeout, max_mem, 
+>                             (ga.nthreads == 1 ? 0 : ga.nthreads),
+=== bam_split.c
+138a139,140
+>     (void) finalize_sam_global_opt(&retval->ga);
+> 
+405c407
+<     if (opts->ga.nthreads > 0) {
+---
+>     if (opts->ga.nthreads > 1) {
+=== bam_stat.c
+128a129
+>     (void) finalize_sam_global_opt(&ga);
+139c140
+<     if (ga.nthreads > 0)
+---
+>     if (ga.nthreads > 1)
+=== bamshuf.c
+195c195
+<     if (ga->nthreads > 0) {
+---
+>     if (ga->nthreads > 1) {
+599a600,601
+>     (void) finalize_sam_global_opt(&ga);
+>         
+=== sam_opts.c
+28a29
+> #include <unistd.h>
+31a33,62
+> static inline int _nbcores()
+> {
+>     return sysconf(_SC_NPROCESSORS_ONLN);
+> }
+> 
+> /*
+>  * finalize global options - for options that should be defined at runtime
+>  *
+>  * Returns 0 on success,
+>  *        -1 on failure.
+>  */
+> 
+> int finalize_sam_global_opt(sam_global_args *ga) {
+> 
+>     if (! ga)
+>         return -1;
+> 
+>     if (ga->nthreads == 0) {
+>       ga->nthreads = _nbcores();
+>     }
+>     else if (ga->nthreads < 0) {
+>       ga->nthreads = _nbcores() / -ga->nthreads;
+>       ga->nthreads = (ga->nthreads >= 1 ? ga->nthreads : 1);
+>     }
+> 
+>     fprintf(stderr, "[threads] %d\n", ga->nthreads);
+> 
+>     return 0;    
+> }
+> 
+138c169
+<                     "               Number of additional threads to use [0]\n");
+---
+>                     "               Number of threads to use [0] (0=max_available <0=max_available/INT)\n");
+=== sam_opts.h
+86a87,94
+>  * finalize global options - for options that should be defined at runtime
+>  *
+>  * Returns 0 on success,
+>  *        -1 on failure.
+>  */
+> int finalize_sam_global_opt(sam_global_args *ga);
+> 
+> /*
+=== sam_view.c
+388a389,390
+>     (void) finalize_sam_global_opt(&ga);
+>     
+1277a1280
+>     (void) finalize_sam_global_opt(&opts->ga);
+=== stats.c
+2388a2389,2390
+>     (void) finalize_sam_global_opt(&ga);
+>     
+2403c2405
+<     if (ga.nthreads > 0)
+---
+>     if (ga.nthreads > 1)

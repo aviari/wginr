@@ -1,0 +1,103 @@
+#!/usr/bin/env Rscript
+#
+# make R utility : check and install package if necessary
+#
+# usage: checkinstall --package=<package> [--install=TRUE/FALSE]  
+#        [other arguments passed to lx.require]
+#
+#
+
+require(lx)
+
+args <- lx.getargs()
+
+if (is.null(args$package))
+  quit(save='no', status=2)
+
+.out <- function(...) {
+  cat(paste0('+ ', ..., '\n'), file=stderr())
+}
+
+.quitif <- function(test, package, status=0) {
+  .out('------ package ', package, ' is ', ifelse(ok, '', 'NOT '), 'installed')
+  if (test) quit(save='no', status=status)
+}
+
+#
+# first see if package is installed
+#
+
+.out('')
+.out('-------------------------------------------------------------------')
+.out('------ checking package: ', args$package)
+
+ok <- do.call(lx.require, c(args, list(install=FALSE)))
+
+.quitif(ok, args$package)
+
+#
+# first try with CRAN (unless --skipcran is TRUE)
+#
+
+skipit <- (! is.null(args$skipcran)) && eval(parse(text=args$skipcran))
+
+.out('-------------------------------------------------------------------')
+
+if (skipit) {
+  .out('------ skipping CRAN repository')
+} else {
+  .out('------ trying with CRAN repository: ', args$repos)
+
+  ok <- do.call(lx.require, c(args, list(install=TRUE)))
+
+  .quitif(ok, args$package)
+}
+
+#
+# now try with local sources
+#
+
+args$local <- NULL
+args$repos <- NULL
+args$type <- 'source'
+args$tarball <- paste0('packages/source/', args$package, '.tar.gz')
+
+.out('-------------------------------------------------------------------')
+.out('------ trying with local sources: ', args$tarball)
+
+ok <- do.call(lx.require, c(args, list(repos=NULL)))
+
+.quitif(ok, args$package)
+
+#
+# now try with local binaries
+#
+
+.out('-------------------------------------------------------------------')
+
+port <- tryCatch(system('../scripts/qq.guessport', intern=TRUE, ignore.stderr=TRUE),
+                 error=function(e) NULL)
+
+args$type <- 'binary'
+args$tarball <- paste0('packages/binary/', port, '/', args$package, '.tar.gz')
+
+if (file.exists(args$tarball)) {
+  .out('------ trying with binary package: ', args$tarball)
+   ok <- do.call(lx.require, c(args, list(repos=NULL)))
+} else {
+  .out('------ no additional binary package found: ', args$tarball)
+  ok <- FALSE
+}
+
+.quitif(ok, args$package)
+
+#
+# failure
+#
+
+.out('-------------------------------------------------------------------')
+.out(' *** all install possibilities for package: ', args$package, ' have been exhausted')
+.out(' *** please install manually...')
+
+quit(save='no', status=5)
+

@@ -1,0 +1,129 @@
+#!/bin/csh -f
+#
+# $Id: $
+#
+# check configuration
+#
+
+alias Line echo "+ -------------"
+alias Banner 'Line; echo "+ checking : \!:1"'
+alias Fail '@ nerr ++; echo "* [0;31mError[0;m : \!:1"; goto $next'
+alias Pass 'echo "+ [0;32mpass[0;m : \!:1"'
+
+alias Next 'set next = \!:1'
+
+alias VerSet 'set vs = `\!:* | head -1 | awk '"'"\{print \$NF\}"'"' | tr -c -d '0-9.'`'
+alias VerGet 'set vn = `echo $vs | tr ' "'"."'" "'" "'" '`'
+
+@ nerr = 0
+
+set here = `dirname $0`
+
+#
+# header
+#
+
+Line
+echo "+ checking configuration"
+echo -n "+ uname -a : "; uname -a
+echo -n "+ portname : "; $here/guessport
+Line
+
+#
+# gcc compiler
+#
+gcc:
+Banner "gcc compiler"
+Next make
+VerSet gcc --version ; VerGet
+if ($#vn == 0) then
+   Fail "no gcc compiler found"
+endif
+if (($vn[1] <  4) || (($vn[1] == 4) && ($vn[2] < 8))) then
+   Fail " gcc version $vs \< 4.8"
+endif
+Pass "gcc compiler $vs"
+
+#
+# gnu make
+#
+make:
+Banner "make"
+Next R
+VerSet make --version ; VerGet
+if ($#vn == 0) then
+   Fail "no gnu make found"
+endif
+if (($vn[1] <  3) || (($vn[1] == 3) && ($vn[2] < 81))) then
+   Fail " make version $vs \< 3.81"
+endif
+Pass "gnu make $vs"
+
+#
+# R
+#
+R:
+Banner "R"
+Next latex
+set vs = `R  --version | head -1 | awk '{print $3}'`
+VerGet
+if ($#vn == 0) then
+   Fail "no R installed"
+endif
+if ($vn[1] <  3) then
+   Fail " R version $vs \< 3.0"
+endif
+Pass "R $vs"
+
+#
+# pdflatex
+#
+latex:
+Banner "latex"
+Next tar
+set vs = `(pdflatex --version > /dev/null) && echo $status`
+if ($vs != 0) then
+   Fail "no pdflatex installed"
+endif
+Pass "pdflatex"
+
+#
+# gnu like tar
+#
+tar:
+Banner "tar"
+Next fin
+set n = `cd $here && tar --exclude '.??*' --exclude checkconfig -cf - . | tar tf - | grep checkconfig | wc -l`
+if (($status != 0) || ($n != 0)) then
+  @ nerr++
+  echo "* Error : tar --exclude failed"
+  goto $next
+endif
+Pass "tar --exclude"
+
+#
+# END
+#
+fin:
+echo "+"
+
+if ($nerr != 0) then
+  echo "* [0;31mplease upgrade your configuration[0;m"
+  exit 1
+endif
+
+# footer for posterity
+
+Line
+echo -n "+ uname -a : "; uname -a
+echo -n "+ portname : "; $here/guessport
+echo -n "+ gcc      : "; gcc --version | head -1
+echo -n "+ make     : "; make --version | head -1
+echo -n "+ R        : "; R --version | head -1
+echo -n "+ tar      : "; tar --version | head -1
+echo -n "+ awk      : "; awk --version | head -1
+echo -n "+ pdflatex : "; pdflatex --version | head -1
+
+echo "+"
+echo "+ config is ok"
+exit 0

@@ -1,0 +1,26 @@
+{
+    "dialog-state" : {
+        "caseSensitive" : false,
+        "filePatterns" : [
+            "*.r",
+            "*.R",
+            "*.rnw",
+            "*.Rnw",
+            "*.rmd",
+            "*.Rmd",
+            "*.rmarkdown",
+            "*.Rmarkdown",
+            "*.rhtml",
+            "*.Rhtml",
+            "*.rd",
+            "*.Rd",
+            "*.h",
+            "*.hpp",
+            "*.c",
+            "*.cpp"
+        ],
+        "path" : "~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/asdog",
+        "query" : "asdog.bcp",
+        "regex" : false
+    }
+}

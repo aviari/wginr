@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1496096191215.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3801383457",
+    "id" : "AB88B27E",
+    "lastKnownWriteTime" : 1538377104,
+    "last_content_update" : 1538377104178,
+    "path" : "~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/xlx/R/xlx.basta.r",
+    "project_path" : "R/xlx.basta.r",
+    "properties" : {
+        "cursorPosition" : "183,63",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

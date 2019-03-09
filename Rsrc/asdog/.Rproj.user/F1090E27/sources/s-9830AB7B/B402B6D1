@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1505521214653.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2588492905",
+    "id" : "B402B6D1",
+    "lastKnownWriteTime" : 1511164866,
+    "last_content_update" : 1511164866985,
+    "path" : "~/Developpements/SvnProjects/WGInR_Asdog/Rsrc/scripts/aspup.main.r",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 10,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}

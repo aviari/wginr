@@ -1,0 +1,30 @@
+#!/bin/sh
+# $Id: $
+#
+# try to guess current port
+# usage: guessport
+#
+# history: 
+# @+ <Gloup> Nov. 2000 first draft adapted from GNU config.guess
+# @+ <Gloup> Dec. 2018 reshaped to sh for portability
+#
+
+port() { echo $1; exit 0; }
+
+mach=$(uname -m)
+syst=$(uname -s)
+rels=$(uname -r)
+
+case "${mach}:${syst}:${rels}" in
+
+    Power*\:Darwin\:*)  port ppc-darwin;;
+    i*86\:Linux\:*)     port i386-linux;;
+    x*86*\:Linux\:*)    port x386-linux;;
+    i*86\:Darwin\:*)    port i386-darwin;;
+    x*86*\:Darwin\:*)   port x386-darwin;;
+    i*86\:MINGW32*\:*)  port x86-win32;;
+    
+esac
+
+echo 'unknown-port : ' ${mach} ${syst} ${rels}
+exit 1

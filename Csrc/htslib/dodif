@@ -1,0 +1,14 @@
+#!/bin/csh
+
+echo -n '' > DIFF_AV
+
+foreach f (originals/*)
+  set n = `basename $f`
+  diff -E -b -B -q $f $n
+  if ($status != 0) then
+    echo "=== $n" >> DIFF_AV
+    diff -E -b -B $f $n >> DIFF_AV
+  endif
+end
+
+exit 0
