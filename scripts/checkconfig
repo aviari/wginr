@@ -80,7 +80,8 @@ Pass "R $vs"
 #
 latex:
 Banner "latex"
-Next tar
+#Next tar
+Next fin
 set vs = `(pdflatex --version > /dev/null) && echo $status`
 if ($vs != 0) then
    Fail "no pdflatex installed"
@@ -88,7 +89,7 @@ endif
 Pass "pdflatex"
 
 #
-# gnu like tar
+# gnu like tar (for Ssrc only)
 #
 tar:
 Banner "tar"
@@ -120,8 +121,8 @@ echo -n "+ portname : "; $here/guessport
 echo -n "+ gcc      : "; gcc --version | head -1
 echo -n "+ make     : "; make --version | head -1
 echo -n "+ R        : "; R --version | head -1
-echo -n "+ tar      : "; tar --version | head -1
-echo -n "+ awk      : "; awk --version | head -1
+#echo -n "+ tar      : "; tar --version | head -1
+#echo -n "+ awk      : "; awk --version | head -1
 echo -n "+ pdflatex : "; pdflatex --version | head -1
 
 echo "+"

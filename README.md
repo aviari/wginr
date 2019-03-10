@@ -7,6 +7,12 @@ to manipulate Whole Genomes in R.
 (this includes 'asdog' and 'aspup' scripts
  for Copy Number Analysis)
 
+## Clone
+
+```sh
+  git clone https://github.com/aviari/wginr.git
+```
+
 ## Distribution
 
 - Csrc    : C sources (bam2baf, fasta2basta, ...)
@@ -15,6 +21,7 @@ to manipulate Whole Genomes in R.
 - ports   : will hold binaries for your port
 - scripts : shell scripts
 - docs    : some additional documentation
+- docker  : docker recipe (see below)
 
 ## Prerequisites
 
@@ -37,6 +44,11 @@ you can check your config by running :
 ```sh
 scripts/checkconfig
 ```
+
+### Alternative Docker recipe
+
+Alternatively, a docker recipe is also available as [docker/Dockerfile](docker/Dockerfile)
+see [here](docs/Docker.md) for more information.
 
 ### Required authorizations
 
