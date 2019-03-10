@@ -9,6 +9,13 @@ Adog uses its own file format (for quicker indexed access) for:
 - reference genome (.bst basta file)
 - aligned bam file (.baf baf file)
 
+a **basta** file is merely the same as the fasta file (plus a header allowing
+indexed access). It can be (bgzf) compressed. It has about the same size 
+as the fasta file (uncompressed) and about 700 Mb in compressed form.
+
+a **baf** file contains the counts for each allele at each position.
+It can be (bgzf) compressed.
+Its size depends upon the cover but is usually around 3Gb when compressed.
 
 ## generation of baf and basta files
 
