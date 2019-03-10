@@ -94,7 +94,7 @@ make install
 R will try to install packages from CRAN or the local directory
 ```Rsrc/packages/source```
 
-In case of trouble, see [Compilation/Installation troubles](#Compilation/Installation-troubles) below
+In case of trouble, see [Compilation/Installation troubles](#Compilation-Installation-troubles) below
 
 All other (C) binaries will be installed in: ```ports/\<portname\>/bin```
 
@@ -124,7 +124,7 @@ make distclean cleanup and restore initial distrib (dev only)
 
 note for devs: please do a ```make distclean``` before commiting :smirk:
 
-### Compilation/Installation troubles
+### Compilation Installation troubles
 
 #### R Cran repository
 
