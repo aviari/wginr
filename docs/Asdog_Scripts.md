@@ -1,23 +1,9 @@
-#
-# Readme
-#
+# Asdog usage
 
-# ------------------------------
-# -0- Installation
-# ------------------------------
-#
+## overview
 
-# the best is to reload everything from Inria's svn gforge
+![overview](asdog_overview.jpeg)
 
-svn co svn+ssh://USER@scm.gforge.inria.fr/svn/wginr/trunk WGInR
-
-# then
-
-cd WGInR
-
-make all install
-
-# ------------------------------
 # -1- generation of baf and basta files
 # ------------------------------
 

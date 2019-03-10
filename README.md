@@ -9,12 +9,12 @@ to manipulate Whole Genomes in R.
 
 ## Distribution
 
-- Csrc    : C sources (for samtools, bam2baf, ...)
+- Csrc    : C sources (bam2baf, fasta2basta, ...)
 - Rsrc    : R sources (lx, xlx, asdog, ...)
 
-- ports   : precompiled binaries for various ports
+- ports   : will hold binaries for your port
 - scripts : shell scripts
-- docs    : some (rudimentary) documentation
+- docs    : some additional documentation
 
 ## Prerequisites
 
@@ -179,15 +179,27 @@ scripts/showrc
 ### Asdog
 Asdog (CNV analysis) usage is described in [Asdog_Scripts](docs/Asdog_Scripts.md) 
 
+Aspup (Asdog variant for Agilent Oneseq backbone) is not documented yet (sorry)
+
+### R libraries (for developpers only)
+
+Documentation for R libraries can be found in their respective directory:
+
+- [lx](Rsrc/lx/inst/doc/lx.pdf)
+- [xlx](Rsrc/xlx/inst/doc/xlx.pdf)
+- [rbgzf](Rsrc/rbgzf/inst/doc/rbgzf.pdf)
+- [thmm](Rsrc/thmm/inst/doc/thmm.pdf)
+- [asdog](Rsrc/asdog/inst/doc/asdog.pdf)
+
 
 ## Authors
 
-* **Alain Viari** (alain.viari[at]inria.fr)
+* Alain Viari (alain.viari[at]inria.fr)
+* Anthony Ferrari (anthony.ferrari[at]lyon.unicancer.fr)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
 
 
