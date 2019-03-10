@@ -179,6 +179,8 @@ scripts/showrc
 ### Asdog
 Asdog (CNV analysis) usage is described in [Asdog_Scripts](docs/Asdog_Scripts.md) 
 
+A tutorial (sample session) is in preparation.
+
 Aspup (Asdog variant for Agilent Oneseq backbone) is not documented yet (sorry)
 
 ### R libraries (for developpers only)
