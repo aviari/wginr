@@ -7,7 +7,7 @@ to manipulate Whole Genomes in R.
 (this includes 'asdog' and 'aspup' scripts
  for Copy Number Analysis)
 
-## Clone
+clone as
 
 ```sh
   git clone https://github.com/aviari/wginr.git
@@ -210,7 +210,8 @@ Documentation for R libraries can be found in their respective directory:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GPL License - see the [LICENSE](LICENSE)
+file for details
 
 
 
