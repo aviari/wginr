@@ -173,11 +173,12 @@ The following script may help you to setup this
 ```
 scripts/showrc
 ```
-    
------------------
--7- Usage
------------------
-tdb... see docs/Readme_Anthony.txt
+
+## Usage & Documentation
+
+### Asdog
+Asdog (CNV analysis) usage is described in [Asdog_Scripts](docs/Asdog_Scripts.md) 
+
 
 ## Authors
 
