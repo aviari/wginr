@@ -132,10 +132,8 @@ note for devs: please do a ```make distclean``` before commiting :smirk:
 from CRAN.
 
 The default CRAN repository is : http://cran.irsn.fr
-to change it:
-
-- edit ```Rsrc/Makefile```
-- and change ```CRAN_REPOS = http://cran.irsn.fr ``` to whatever you prefer.
+to change it, set the environment variable CRAN_REPOS
+to whatever you prefer.
 
 If the CRAN repository cannot be used for any reason
 (no internet connection, package has been removed), then 

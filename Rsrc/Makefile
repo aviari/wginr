@@ -42,7 +42,9 @@ PACK_MAN = $(PACK_BOOT:=.man) $(PACK_UTIL:=.man)
 
 PACK_INS = $(PACK_UTIL:=.ins)
 
-CRAN_REPOS = http://cran.irsn.fr
+ifndef CRAN_REPOS
+  CRAN_REPOS = http://cran.irsn.fr
+endif
 
 # -------------------------------------
 # implicit rules
