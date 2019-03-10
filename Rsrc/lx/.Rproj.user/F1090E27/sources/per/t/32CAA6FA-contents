@@ -1,7 +1,0 @@
-exportPattern("^[^\\.]")
-import("methods")
-import("compiler")
-import("graphics")
-import("grDevices")
-import("stats")
-import("utils")
