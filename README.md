@@ -189,7 +189,6 @@ Documentation for R libraries can be found in their respective directory:
 - [xlx](Rsrc/xlx/inst/doc/xlx.pdf)
 - [rbgzf](Rsrc/rbgzf/inst/doc/rbgzf.pdf)
 - [thmm](Rsrc/thmm/inst/doc/thmm.pdf)
-- [asdog](Rsrc/asdog/inst/doc/asdog.pdf)
 
 
 ## Authors
