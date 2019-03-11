@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# $Id: asdog.segment.build.r 396 2019-01-02 22:53:10Z viari $
+# $Id: asdog.segment.build.r 497 2019-03-11 09:45:44Z viari $
 # Asdog: Copy Number Analysis for WGS data
 #
 # CN & AF final segmentation
@@ -118,7 +118,7 @@
     list(nb.mark=ilen, med=med, mad=mad, zscor=zscor, pval=pval)
   })
 
-  as.data.frame(apply(do.call(rbind, res), 2, unlist))
+  do.call(rbind.data.frame, res)
 }
 
 # -------------------------------------------------
