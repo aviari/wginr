@@ -444,7 +444,7 @@ asdog.segment <- function(gccorrect, plmodel=NULL, params=gccorrect$params,
   # Segmentation on RCAF (using plmodel normal heterozygous sites)
   #-------------------------------
 
-  if (! is.null(plmodel)) {
+  if ((! is.null(plmodel)) && params$segment.use.rcaf) {
     lx.out("---------------------------------------")
     lx.out("Segmentation on RC-AF")
     lx.out("---------------------------------------")

@@ -61,7 +61,9 @@
       mai = c(0, 0, 0, 0))
   
   lapply(names(cnt), function(chr) {
-    pie(cnt[[chr]]$x, col=colr[cnt[[chr]]$stat], labels="")
+    x <- cnt[[chr]]$x
+    x[is.na(x)] <- 0
+    pie(x, col=colr[cnt[[chr]]$stat], labels="")
     text(0, 0, chr, cex=2, font.main=1, family="mono", col="white")
   })
   

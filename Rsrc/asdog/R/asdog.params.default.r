@@ -498,6 +498,11 @@ asdog.default.params <- function() {
                                   "integer",
                                   1000L)
   
+  def$segment.use.rcaf    <- .def("segment: HMM_segmentation",
+                                   "use rc and af (TRUE) or rc only (FALSE) for segmentation",
+                                   "logical",
+                                   TRUE)
+
   def$segment.plot.cnmax   <- .def("segment:report: ploidy model",
                                    "cn plot max value (use 0 to disable)",
                                    "double",
