@@ -41,7 +41,7 @@ asdog.plot.plmodel.rcaf <- function(obs, theo=NULL,
   plot(obs$rc, obs$af, cex=0, xlim=rrng, ylim=arng, xlab="rrc", ylab="baf")
   pusr <- par('usr')
   urng <- max(pusr[2] - pusr[1], pusr[4] - pusr[3])
-  urng <- c(0, urng/10)
+  urng <- c(urng/10, urng)/10
   tmp <- apply(obs, 1, function(r) {
     rd <- lx.scale(r[['weight']], to=urng, from=wrng) 
     .circle(r[['rc']], r[['af']], rd, col=col, ...)

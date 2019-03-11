@@ -73,7 +73,8 @@ asdog.bcp.segment <- function(rrc, baf, rcmax=4,
 
   seg$weight <- seg$ito - seg$ifrom + 1
   
-  seg <- seg[seg$weight >= minseg.size,,drop=F]
+  if (any(seg$weight >= minseg.size))
+    seg <- seg[seg$weight >= minseg.size,,drop=F]
   
   lx.out("kept ", nrow(seg), " segments")
 

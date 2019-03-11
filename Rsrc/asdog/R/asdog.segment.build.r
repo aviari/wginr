@@ -256,7 +256,7 @@ asdog.segment.rc <- function(gccorrect, regions, params,
   
   sd.winsize <- min(sd.winsize, length(rrc))
   sd0 <- median(sapply(seq(1, length(rrc), sd.winsize), 
-                       function(i) sd(rrc[i:(i+sd.winsize)])),
+                       function(i) sd(rrc[i:(i+sd.winsize)], na.rm=T)),
                 na.rm=T)
   lx.out("sd rrc estimate=", sd0)
   
