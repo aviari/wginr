@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# $Id: asdog.gcmodel.build.r 355 2017-12-11 07:50:48Z viari $
+# $Id: asdog.gcmodel.build.r 495 2019-03-11 08:25:52Z viari $
 # Asdog: Copy Number Analysis for WGS data
 #
 # GC model contruction
@@ -275,6 +275,11 @@ asdog.gcmodel <- function(params, use.threads=lx.use.threads()) {
     
     lx.out("yielding ", nrow(regions.large), 
            " large regions covering ", .tsize(regions.large), " bp")
+    
+    if (nrow(regions.large) == 0) {
+      lx.warn("no large region available, turning large window off")
+      has.large.window <- FALSE
+    }
   }
   
   #

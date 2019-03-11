@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# $Id: asdog.params.parser.r 396 2019-01-02 22:53:10Z viari $
+# $Id: asdog.params.parser.r 495 2019-03-11 08:25:52Z viari $
 # Asdog: Copy Number Analysis for WGS data
 #
 # asdog parameters : create, parse and print parameters
@@ -95,6 +95,15 @@ asdog.new.params <- function(...,
   # evaluation of string arguments
   
   .eval <- function(e, v) {
+    # special cases
+    #   "NULL" => NULL
+    #  "=<expression>" => eval R expression
+    #
+    if (v == "NULL") return()
+    if (grepl("^=", v)) return(eval(.parse.any(substring(v,2))))
+    # 
+    # standard cases
+    #
     switch(default[[e]]$type,
            character=v,
            integer=.parse.integer(v),

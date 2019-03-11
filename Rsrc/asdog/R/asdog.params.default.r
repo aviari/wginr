@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# $Id: asdog.params.default.r 396 2019-01-02 22:53:10Z viari $
+# $Id: asdog.params.default.r 495 2019-03-11 08:25:52Z viari $
 # Asdog: Copy Number Analysis for WGS data
 #
 # asdog default parameters
@@ -169,12 +169,12 @@ asdog.default.params <- function() {
                                          c(3L, 5L, 15L))
 
   def$gcmodel.small.winsize     <- .def("gccorrect: gc_window_optimization",
-                                         "gc small windows size in bp",
+                                         "gc small windows size in bp (use 0 to disable small window)",
                                          "vector-of-integer",
                                          c(500L, 1000L, 2000L, 5000L))
 
   def$gcmodel.large.winsize     <- .def("gccorrect: gc_window_optimization",
-                                         "gc large windows size in bp",
+                                         "gc large windows size in bp (use 0 to disable large window)",
                                          "vector-of-integer",
                                          c(1e5L, 2e5L, 5e5L, 1e6L, 2e6L, 5e6L))
 

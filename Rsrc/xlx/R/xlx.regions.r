@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# $Id: xlx.regions.r 357 2018-08-31 17:42:13Z viari $
+# $Id: xlx.regions.r 496 2019-03-11 08:26:47Z viari $
 # Chromosomal regions definition
 #
 
@@ -91,12 +91,6 @@
                               binsize=1000L, nstrata=10L,
                               minreg=binsize) {
 
-  if (cloc[1] != xchr) {
-    lx.out(">>", cloc)
-    xchr <<- cloc[1]
-  }
-  
-  
   # default result : empty regions
   #
   bylevel <- rep(list(NULL), nstrata)
