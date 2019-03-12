@@ -7,7 +7,7 @@ FROM r-base
 MAINTAINER alain.viari@inria.fr
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
-    csh git texlive
+    csh git texlive texinfo
 
 RUN cd home && git clone --progress https://github.com/aviari/wginr.git
 
