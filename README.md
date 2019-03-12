@@ -48,7 +48,7 @@ scripts/checkconfig
 
 ### Alternative Docker recipe
 
-Alternatively, a docker recipe is also available as [docker/Dockerfile](docker/Dockerfile)
+Alternatively, a docker recipe is also available in [docker](docker/README.md)
 see [here](docs/Docker.md) for more information.
 
 ### Required authorizations

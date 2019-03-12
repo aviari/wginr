@@ -13,7 +13,7 @@ docker build -t wginr .
 docker run -it -v ${HOME}:/home/$USER wginr
 ```
 
-# running image
+## running image
 
 ```
 docker run -it -v ${HOME}:/home/$USER wginr
