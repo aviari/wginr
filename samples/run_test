@@ -1,0 +1,40 @@
+#!/bin/csh -fv
+#
+# this is a typical asdog sample session
+# using purely artificial data
+# (results are biologically totally irrelevant)
+#
+
+# clean up any previous run
+(\rm -rf ref.bst* tumor.baf* normal.baf* tumor.*.*  tmp) > /dev/null
+
+# convert ref genome to basta
+fasta2basta -z ref.fst ref.bst
+
+# convert bam to baf
+bam2baf -z normal.bam normal.baf
+bam2baf -z tumor.bam tumor.baf
+
+# make GC model
+# ! only the first line is mandatory
+# ! the other lines will change the default parameters due to the artificial
+# ! nature of this demo sample (very small size)
+# ! don't use in your own scripts (unless you know what you are doing)
+asdog.gcmodel.r --base=tumor --ref=ref \
+   --chrs=1 --gcmodel.large.winsize=0  \
+   --gcmodel.sample.gcbins=0 \
+   --gcmodel.regions.minreg=1000 \
+   --gcmodel.regions.binsize=1000 \
+   --gcmodel.sample.size=1000
+
+# correct GC on tumor
+asdog.gccorrect.r --gcmodel=tumor.gcmodel
+
+# make Ploidy model
+asdog.plmodel.r --normal=normal --gccorrect=tumor.gccorrect
+
+# segment chromosome(s)
+asdog.segment.r --gccorrect=tumor.gccorrect --plmodel=tumor.plmodel
+
+exit 0
+
