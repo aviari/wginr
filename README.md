@@ -18,10 +18,11 @@ clone as
 - Csrc    : C sources (bam2baf, fasta2basta, ...)
 - Rsrc    : R sources (lx, xlx, asdog, ...)
 
-- ports   : will hold binaries for your port
 - scripts : shell scripts
 - docs    : some additional documentation
+- samples : some samples for quick starting
 - docker  : docker recipe (see below)
+- ports   : will hold binaries for your port (initially empty)
 
 ## Prerequisites
 
