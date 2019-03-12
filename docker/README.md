@@ -24,8 +24,7 @@ then cd /home/\<user\> and play around.
 for instance:
 
 ```
-cd /home/wginr
-samples/run_test
+cd /home/wginr/samples && ./run_test
 ```
 
 
