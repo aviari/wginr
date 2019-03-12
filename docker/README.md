@@ -21,3 +21,11 @@ docker run -it -v ${HOME}:/home/$USER wginr
 
 then cd /home/\<user\> and play around.
 
+for instance:
+
+```
+cd /home/wginr
+samples/run_test
+```
+
+
