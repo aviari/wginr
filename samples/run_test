@@ -6,7 +6,7 @@
 #
 
 # clean up any previous run
-(\rm -rf ref.bst* tumor.baf* normal.baf* tumor.*.*  tmp) > /dev/null
+(\rm -rf ref.bst* tumor.baf* normal.baf* tumor.*.*  tmp) >& /dev/null
 
 # convert ref genome to basta
 fasta2basta -z ref.fst ref.bst
