@@ -10,7 +10,6 @@ Final image is about 1.4Gb. Be patient during the build.
 ```
 cd docker
 docker build -t wginr .
-docker run -it -v ${HOME}:/home/$USER wginr
 ```
 
 ## running image
