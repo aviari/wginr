@@ -143,7 +143,7 @@ allelic frequencies in tumour it will built the tumour ploidy model.
 asdog.plmodel.r --normal=normal --gccorrect=tumor.gccorrect \
                 --plmodel.bcp.p0=1e-100
 ```
-> note: the ```--plmodel.bcp.p0``` is due to a bug (in bcp package
+> note: ```--plmodel.bcp.p0``` is due to a bug (in bcp package
 > under debian). If you are under Linux debian, please keep it until
 > fixed (we are currently working) on it.
 
