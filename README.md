@@ -190,7 +190,7 @@ scripts/showrc
 ### Asdog
 Asdog (CNV analysis) usage is described in [Asdog_Scripts](docs/Asdog_Scripts.md) 
 
-A **sample session**, including some explanations about scripts and files, is
+A **Asdog sample session**, including some explanations about scripts and files, is
 available in [samples](samples/README.md).
 
 Aspup is a variant of Asdog designed for then Agilent Oneseq backbone.
