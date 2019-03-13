@@ -18,12 +18,11 @@ docker build -t wginr .
 docker run -it -v ${HOME}:/home/$USER wginr
 ```
 
-then cd /home/\<user\> and play around.
+then play (you home dir is at /home/\<user\>)
 
 for instance:
 
 ```
 cd /home/wginr/samples && ./run_test
 ```
-
 
