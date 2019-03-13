@@ -51,6 +51,9 @@ scripts/checkconfig
 Alternatively, a docker recipe is also available in [docker/Dockerfile](docker/Dockerfile)
 see [here](docker/README.md) for more information.
 
+> NOTICE : This recipe has currently a bug due to the **bcp** package on debian
+> please wait until I fix it (I'm working on it)
+
 ### Required authorizations
 
 You do **not** need to be root to compile and install,

@@ -1,5 +1,8 @@
 # Docker recipe for WGInrR
 
+> This recipe has currently a bug due to the bcp package on debian
+> please wait until I fix it (I'm working on it)
+
 This recipe [Dockerfile](../docker/Dockerfile) will produce
 a Docker image for WGInR based on Linux debian.
 

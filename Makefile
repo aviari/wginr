@@ -38,7 +38,7 @@ install:
 test:
 	cd Csrc && make test
 	cd Rsrc && make test
-	cd samples && run_test
+#	cd samples && run_test
 	@make banner TARGET=$@
 
 clean:
