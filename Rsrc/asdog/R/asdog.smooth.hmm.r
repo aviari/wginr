@@ -254,7 +254,7 @@ asdog.smooth.hmm.dnorm <- function(x, xmin=0, xmax=max(x, na.rm=T),
   wx <- if (raw) x else sx
   
   # estimate hmm0 sd
-  wsd <- minseg.size
+  wsd <- min(minseg.size, ceiling(length(wx)/10))
   sd0 <- median(sapply(seq.int(from=1, to=length(wx)-wsd, by=wsd/2),
                        function(i) sd(wx[i:(i+wsd)])))
   
@@ -403,6 +403,19 @@ asdog.smooth.hmm.segment <- function(rrc, baf,
   # make sure sample size are the same for rc and af
   sample.size <- max(rc.ctrl$sample.size, af.ctrl$sample.size)
   
+  # make sure minseg.size is below data length
+  limseg.size <- ceiling(nrow(df)/10)
+  rc.minseg.size <- rc.ctrl$minseg.size
+  if (rc.minseg.size > limseg.size) {
+    lx.warn("rc minseg.size [", rc.minseg.size, "] too big for data length. will be reduced to ", limseg.size)
+    rc.minseg.size <- limseg.size
+  }
+  af.minseg.size <- af.ctrl$minseg.size
+  if (af.minseg.size > limseg.size) {
+    lx.warn("af minseg.size [", af.minseg.size, "] too big for data length. will be reduced to ", limseg.size)
+    af.minseg.size <- limseg.size
+  }
+  
   # smooth rc
   lx.out("smoothing rRC", with.mem=T)
   
@@ -410,7 +423,7 @@ asdog.smooth.hmm.segment <- function(rrc, baf,
                                  smooth=rc.ctrl$smooth, eps.max=rc.ctrl$eps.max,
                                  max.levels=rc.ctrl$max.levels, 
                                  sample.size=sample.size,
-                                 minseg.size=rc.ctrl$minseg.size, tau=rc.ctrl$tau)
+                                 minseg.size=rc.minseg.size, tau=rc.ctrl$tau)
   
   # smooth af
   lx.out("smoothing AF", with.mem=T)
@@ -419,7 +432,7 @@ asdog.smooth.hmm.segment <- function(rrc, baf,
                                  smooth=af.ctrl$smooth, eps.max=af.ctrl$eps.max,
                                  max.levels=af.ctrl$max.levels,
                                  sample.size=sample.size,
-                                 minseg.size=af.ctrl$minseg.size, tau=af.ctrl$tau)
+                                 minseg.size=af.minseg.size, tau=af.ctrl$tau)
   
   # intersect RC and AF segment
   lx.out("intersecting rRC and AF segments", with.mem=T)
@@ -446,10 +459,15 @@ asdog.smooth.hmm.segment <- function(rrc, baf,
   seg$hmm.af  <- res.af$seg[ind,]$stval + 0.5
   seg$sd.af   <- res.af$seg[ind,]$sd
   
-  minseg.size <- min(rc.ctrl$minseg.size, af.ctrl$minseg.size)
-  seg <- seg[(seg$ito - seg$ifrom + 1) >= minseg.size,,drop=F]
-  
-  
+  if (nrow(seg) != 0) {
+    minseg.size <- min(rc.minseg.size, af.minseg.size)
+    if (all((seg$ito - seg$ifrom + 1) < minseg.size)) {
+      lx.warn("minseg.size too high (will yield no segment), disabling last filter")
+    } else {
+      seg <- seg[(seg$ito - seg$ifrom + 1) >= minseg.size,,drop=F]
+    }
+  }
+
   # results
   lx.out("found ", nrow(seg), " segments", with.mem=T)
   list(seg=seg, res.rc=res.rc, res.af=res.af)

@@ -20,8 +20,10 @@ prog.usage <- function() {
 
 args <- asdog.main.args("segment:")
 
-#args$gccorrect = "../asdog.data/HER2.P00661.TU1103C.WGS.gccorrect.rds"
-#args$plmodel = "../asdog.data/HER2.P00661.TU1103C.WGS.plmodel.rds"
+# --- dev tests
+#args$gccorrect = "tumor.gccorrect.rds"
+#args$plmodel = "tumor.plmodel.rds"
+# ---
 
 if (! is.character(args$gccorrect)) {
     asdog.main.exit(1, usage=TRUE)
@@ -137,7 +139,7 @@ lx.out("---------------------------------------", with.mem=T)
 lx.out(" making pdf report: ", paste0(fname, ".pdf"))
 lx.out("---------------------------------------")
 
-asdog.pdf.report(segment, fname)
+tmp <- asdog.pdf.report(segment, fname)
 
 #
 # end

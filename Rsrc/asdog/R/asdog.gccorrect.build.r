@@ -112,9 +112,9 @@ asdog.gccorrect <- function(model, params=model$params,
   #
 
   coords <- apply.clocs(regions, function(clocs, handle, binsize) {
-      unlist(apply(clocs2coords(handle, clocs), 1, function(x) {
+      as.vector(unlist(apply(clocs2coords(handle, clocs), 1, function(x) {
         seq.int(x[1], x[2]-binsize+1, by=binsize) + floor(binsize/2)
-      }), use.names=F)
+      }), use.names=F))
   }, handle=basta,
      binsize=params$gccorrect.binsize,
      use.threads=F)

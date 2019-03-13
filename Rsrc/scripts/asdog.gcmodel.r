@@ -20,9 +20,18 @@ prog.usage <- function() {
 
 args <- asdog.main.args("gccorrect:")
 
-#args$base = "/Users/viari/Desktop/GCCorrect/HER2.P02987.TU1107C.WGS"
-#args$base = "/Users/viari/Desktop/GCCorrect/chr16/chr16_lg"
-#args$ref = "/Users/viari/Desktop/LyonCancer/data/HS_GRCh37_72"
+# --- dev tests
+#args$base = "tumor"
+#args$ref = "ref"
+#
+#args$chrs=1
+#args$gcmodel.large.winsize=0
+#args$gcmodel.sample.gcbins=0
+#args$gcmodel.regions.minreg=1000
+#args$gcmodel.regions.binsize=1000
+#args$gcmodel.sample.size=1000
+#
+# ---
 
 if ((! is.character(args$base)) || (! is.character(args$ref))) {
   asdog.main.exit(1, usage=TRUE)
@@ -78,7 +87,7 @@ lx.out("---------------------------------------", with.mem=T)
 lx.out(" making pdf report: ", paste0(fname, ".pdf"))
 lx.out("---------------------------------------")
 
-asdog.pdf.report(gcmodel, fname)
+tmp <- asdog.pdf.report(gcmodel, fname)
 
 #
 # end

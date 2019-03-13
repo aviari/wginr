@@ -234,7 +234,7 @@ asdog.plmodel <- function(rcsource, params=rcsource$params,
   #
   quant <- quantile(obs$weight, params$plmodel.fit.weightquant)
   obs <- obs[obs$weight >= quant,,drop=F]
-  lx.out("segment weight quantile ", params$plmodel.fit.segquant*100,
+  lx.out("segment weight quantile ", params$plmodel.fit.weightquant*100,
          " : ", sprintf("%.2f", quant))
 
   # fit

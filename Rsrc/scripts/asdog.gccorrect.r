@@ -19,7 +19,9 @@ prog.usage <- function() {
 
 args <- asdog.main.args("gccorrect:")
 
-#args$gcmodel = "HER2.P02987.TU1107C.WGS.gcmodel.rds"
+# --- dev tests
+#args$gcmodel = "tumor.gcmodel.rds"
+# ---
 
 if (! is.character(args$gcmodel)) {
     asdog.main.exit(1, usage=TRUE)
@@ -105,7 +107,7 @@ lx.out("---------------------------------------", with.mem=T)
 lx.out(" making pdf report: ", paste0(fname, ".pdf"))
 lx.out("---------------------------------------")
 
-asdog.pdf.report(gccorrect, fname)
+tmp <- asdog.pdf.report(gccorrect, fname)
 
 #
 # end

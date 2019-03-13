@@ -18,10 +18,12 @@ prog.usage <- function() {
 
 args <- asdog.main.args(NULL)
 
+# --- dev tests
 #args$baf = "/TmpStorage/P_01-2162_refined_alignement.recalibrated"
-#args$ref = "/Users/viari/Desktop/LyonCancer/data/HS_GRCh37_72"
+#args$ref = "/TmpStorage/references/hg19/HS_GRCh37_72"
 #args$bed = "/TmpStorage/backbone_Profiler02.bed"
 #args$outdir = "."
+# ---
 
 if (   (! is.character(args$baf)) 
     || (! is.character(args$ref))

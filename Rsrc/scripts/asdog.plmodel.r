@@ -22,27 +22,31 @@ prog.usage <- function() {
 
 args <- asdog.main.args("cnpredict:")
 
+# --- dev tests
+#args$normal = "normal"
+#args$gccorrect = "tumor.gccorrect"
+#
 # nice diplo
 #args$normal = "/TmpStorage/HER2.P01952.BL110D1.WGS"
 #args$gccorrect = "HER2.P01952.TU110C1.WGS.gccorrect"
-
+#
 # tetra conta
 #args$normal = "/TmpStorage/HER2.P00661.BL11096.WGS"
 #args$gccorrect = "HER2.P00661.TU1103C.WGS.gccorrect"
-
+#
 # high conta
 #args$normal = "/TmpStorage/HER2.P02987.BL11078.WGS"
 #args$gccorrect = "HER2.P02987.TU1107C.WGS.gccorrect"
-
+#
 # ewing test
 #args$normal = "/TmpStorage/EWING.PA13012.BD1300B.WGS"
 #args$gccorrect = "/TmpStorage/EWING.PA13012.PR1300E.WGS.gccorrect"
-
-# carcinosarcome
+#
+# carcinosarcoma
 #args$normal = "/TmpStorage/GYNCS.PA16005.BD16005.WGS"
 #args$gccorrect = "/TmpStorage/GYNCS.PA16005.PR16007.WGS.gccorrect"
-
-#args$plmodel.shmm.segsize=10
+#
+# ---
 
 mode <- if (is.character(args$normal) && is.character(args$gccorrect)) "newmodel" else
         if (is.character(args$plmodel)) "recompute" else
@@ -127,7 +131,7 @@ lx.out("---------------------------------------", with.mem=T)
 lx.out(" making pdf report: ", paste0(fname, ".pdf"))
 lx.out("---------------------------------------")
 
-asdog.pdf.report(plmodel, fname)
+tmp <- asdog.pdf.report(plmodel, fname)
 
 #
 # end
