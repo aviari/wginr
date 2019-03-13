@@ -1,4 +1,4 @@
-# WGInR (Asdog/Aspup)
+# WGInR (Asdog/Aspup) v2.0.0
 
 WGInR ('Whole Genomes In R') are C and R tools 
 from the Lyon Cancer Bioinformatics Facility
@@ -50,9 +50,6 @@ scripts/checkconfig
 
 Alternatively, a docker recipe is also available in [docker/Dockerfile](docker/Dockerfile)
 see [here](docker/README.md) for more information.
-
-> NOTICE : This recipe has currently a bug due to the **bcp** package on debian
-> please wait until I fix it (I'm working on it)
 
 ### Required authorizations
 

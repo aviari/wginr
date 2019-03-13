@@ -31,7 +31,9 @@ asdog.gcmodel.r --base=tumor --ref=ref \
 asdog.gccorrect.r --gcmodel=tumor.gcmodel
 
 # make Ploidy model
-asdog.plmodel.r --normal=normal --gccorrect=tumor.gccorrect
+# the --plmodel.bcp.p0 is due to a bug in bcp, please keep it
+# until fixed
+asdog.plmodel.r --normal=normal --gccorrect=tumor.gccorrect --plmodel.bcp.p0=1e-100
 
 # segment chromosome(s)
 asdog.segment.r --gccorrect=tumor.gccorrect --plmodel=tumor.plmodel
