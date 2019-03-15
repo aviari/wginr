@@ -1,5 +1,5 @@
 # -------------------------------------------------
-# $Id: asdog.params.default.r 495 2019-03-11 08:25:52Z viari $
+# $Id: asdog.params.default.r 498 2019-03-11 19:40:36Z viari $
 # Asdog: Copy Number Analysis for WGS data
 #
 # asdog default parameters
@@ -414,7 +414,7 @@ asdog.default.params <- function() {
   def$plmodel.bcp.p0 <- .def("cnpredict:bcp: ploidy model",
                              "bcp p0 parameter",
                              "double",
-                             1e-50)
+                             1e-100)
   
   # ploidy fit
 

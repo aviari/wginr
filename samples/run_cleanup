@@ -1,4 +1,4 @@
-#!/bin/csh -f
+#!/bin/csh -fv
 
 # clean up any previous run
 (\rm -rf ref.bst* tumor.baf* normal.baf* tumor.*.*  tmp) > /dev/null

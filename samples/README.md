@@ -140,12 +140,8 @@ allelic frequencies in tumour. From the values of read counts and
 allelic frequencies in tumour it will built the tumour ploidy model.
 
 ```sh
-asdog.plmodel.r --normal=normal --gccorrect=tumor.gccorrect \
-                --plmodel.bcp.p0=1e-100
+asdog.plmodel.r --normal=normal --gccorrect=tumor.gccorrect
 ```
-> note: ```--plmodel.bcp.p0``` is due to a bug (in bcp package
-> under debian). If you are under Linux debian, please keep it until
-> fixed (we are currently working on it).
 
 The output is a \<base\>**.plmodel.rds** rds file.
 The script also produces a \<base\>**.plmodel.pdf** file
