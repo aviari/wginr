@@ -215,10 +215,8 @@ WGInR makes use of the following libraries or packages
 * [zlib](https://www.zlib.net)
 * [libdeflate](https://github.com/ebiggers/libdeflate)
 * [R packages](https://cran.r-project.org)
-  * xtable, bit, intervals, digest, nlme, mgcv
-  * Rcpp, RcppArmadillo, bcp, data.table
-  * RColorBrewer, viridisLite, testthat
-	
+  * bcp, bit, data.table, digest, intervals, mgcv, nlme, 
+  * Rcpp, RcppArmadillo, RColorBrewer, testthat, viridisLite, xtable
 
 ## License
 
