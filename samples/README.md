@@ -185,6 +185,13 @@ and cleanup everything by :
 run_cleanup
 ```
 
+## Dog in the Shell
+
+The different modules (**basta2fasta, bam2baf, asdog.\<module\>.r**) described
+before provide the basis for your own pipelines using your favorite workflow
+manager or simply bash. An example of a (csh) script chaining the modules,
+with minimal functionnalities, is provided in [scripts/misc/asdog](../scripts/misc/README.md).
+
 
 
 
