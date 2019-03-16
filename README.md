@@ -208,7 +208,7 @@ Documentation for R libraries can be found in their respective directory:
 ## Acknowledgments
 
 WGInR makes use of the following libraries or packages
-(included in the distribution).
+(everything is included in the distribution).
 
 * [htslib](https://github.com/samtools/htslib)
 * [samtools](http://samtools.sourceforge.net)
