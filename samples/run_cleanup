@@ -1,7 +1,7 @@
 #!/bin/csh -fv
 
 # clean up any previous run
-(\rm -rf ref.bst* tumor.baf* normal.baf* tumor.*.*  tmp) > /dev/null
+(\rm -rf ref.bst* tumor.baf* normal.baf* tumor.*.*  *.lck tmp) > /dev/null
 
 exit 0
 

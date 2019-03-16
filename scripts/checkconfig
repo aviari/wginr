@@ -109,7 +109,7 @@ fin:
 echo "+"
 
 if ($nerr != 0) then
-  echo "* [0;31mplease upgrade your configuration[0;m"
+  echo "* [0;31myou may consider upgrading your configuration[0;m"
   exit 1
 endif
 
@@ -126,5 +126,5 @@ echo -n "+ R        : "; R --version | head -1
 echo -n "+ pdflatex : "; pdflatex --version | head -1
 
 echo "+"
-echo "+ config is ok"
+echo "+ [0;32mconfig is ok[0;m"
 exit 0

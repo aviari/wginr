@@ -167,31 +167,27 @@ and skip it (I hope so actually... didn't try yet).
 
 ### Path setup
 
-Add the following directories to your path:
+You may add the following directories to your path:
 
 - ```<wginr_root>/scripts```
 - ```<wginr_root>/ports/<portname>/bin```
 
+(where **\<portname\>** is given by ```scripts/guessport```)
+
+
 ### R_LIBS setup
 
-finally if you had to set the ```R_LIBS``` environment variable
+Finally if you had to set the ```R_LIBS``` environment variable
 during installation, you will also need to set it before running
 scripts.
-
-Everything could be added in your ```.cshrc/.bashrc``` file.
-The following script may help you to setup this
-
-```
-scripts/showrc
-```
 
 ## Usage & Documentation
 
 ### Asdog
-Asdog (CNV analysis) usage is described in [Asdog_Scripts](docs/Asdog_Scripts.md) 
-
 A **Asdog sample session**, including some explanations about scripts and files, is
 available in [samples](samples/README.md).
+
+Asdog (CNV analysis) scripts are detailled in [Asdog_Scripts](docs/Asdog_Scripts.md) 
 
 Aspup is a variant of Asdog designed for the Agilent Oneseq backbone.
 It is not documented yet (sorry).
