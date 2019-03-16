@@ -211,9 +211,9 @@ WGInR makes use of the following libraries or packages
 (everything is included in the distribution).
 
 * [htslib](https://github.com/samtools/htslib)
+* [libdeflate](https://github.com/ebiggers/libdeflate)
 * [samtools](http://samtools.sourceforge.net)
 * [zlib](https://www.zlib.net)
-* [libdeflate](https://github.com/ebiggers/libdeflate)
 * [R packages](https://cran.r-project.org)
   * bcp, bit, data.table, digest, intervals, mgcv, nlme, 
   * Rcpp, RcppArmadillo, RColorBrewer, testthat, viridisLite, xtable
