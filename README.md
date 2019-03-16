@@ -135,8 +135,6 @@ make clean     cleanup temporary installation files
 make distclean cleanup and restore initial distrib (dev only)
 ```
 
-note for devs: please do a ```make distclean``` before commiting :smirk:
-
 ### Compilation Installation troubles
 
 #### R Cran repository
