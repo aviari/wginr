@@ -207,7 +207,7 @@ Documentation for R libraries can be found in their respective directory:
 
 ## Acknowledgments
 
-WGInR makes use of the following libraries or packages
+WGInR makes use of the following libraries or packages  
 (everything is included in the distribution).
 
 * [htslib](https://github.com/samtools/htslib)
