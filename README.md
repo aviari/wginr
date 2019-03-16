@@ -4,8 +4,8 @@ WGInR ('Whole Genomes In R') are C and R tools
 from the Lyon Cancer Bioinformatics Facility
 to manipulate Whole Genomes in R.
 
-(this includes 'asdog' and 'aspup' scripts
- for Copy Number Analysis)
+This includes the **asdog** package for Copy Number Analysis
+of tumour with paired normal WGS data.
 
 clone as
 
