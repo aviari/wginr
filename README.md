@@ -139,11 +139,11 @@ make distclean cleanup and restore initial distrib (dev only)
 
 #### R Cran repository
 
-'make install' will possibly download some additional R packages
+```make install``` will possibly download some additional R packages
 from CRAN.
 
-The default CRAN repository is : http://cran.irsn.fr
-to change it, set the environment variable CRAN_REPOS
+The default CRAN repository is : **http://cran.irsn.fr**
+to change it, set the environment variable **CRAN_REPOS**
 to whatever you prefer.
 
 If the CRAN repository cannot be used for any reason
@@ -204,6 +204,21 @@ Documentation for R libraries can be found in their respective directory:
 
 * Alain Viari (alain.viari[at]inria.fr)
 * Anthony Ferrari (anthony.ferrari[at]lyon.unicancer.fr)
+
+## Acknowledgments
+
+WGInR makes use of the following libraries or packages
+(included in the distribution).
+
+* [htslib](https://github.com/samtools/htslib)
+* [samtools](http://samtools.sourceforge.net)
+* [zlib](https://www.zlib.net)
+* [libdeflate](https://github.com/ebiggers/libdeflate)
+* [R packages](https://cran.r-project.org)
+  * xtable, bit, intervals, digest, nlme, mgcv
+  * Rcpp, RcppArmadillo, bcp, data.table
+  * RColorBrewer, viridisLite, testthat
+	
 
 ## License
 
