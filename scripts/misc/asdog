@@ -1,0 +1,383 @@
+#!/bin/csh -f
+# $Id: asdog 499 2019-03-13 22:51:18Z viari $
+#
+# asdog shell script
+#
+# Important: The script should be copied (or linked) in the directory containing
+# the asdog.<module>.r scripts, i.e. in wginr/scripts.
+#
+# This script will chain the different asdog modules in order to fullfil
+# a complete asdog analysis. It is provided 'as is' and has not been
+# thoroughly tested yet.
+#
+# Except for some cases that will be described hereafter, the script 
+# will produce all output files in the current directory unless the
+# --outdir=<dirname> option is provided in which case output will be
+# produced in the specified directory (called <outdir>).
+#
+# The scripts basically take three arguments (see usage below):
+# asdog <ref> <tumor> <normal> and will chain the following operations:
+#
+# 1. if <ref>.bst[.bgz] is not found, it will convert <ref>.fst (fasta) to 
+#    <ref>.bst.bgz (basta). The basta file will be placed next to the fasta file,
+#    unless the directory is not writable, in which case it will be put in <outdir>.
+# 2. if <tumor>.baf[.bgz] (resp. <normal>.baf[.bgz]) is not found, it will convert
+#    <tumor>.bam (sorted bam) to <tumor>.baf.bgz (baf). The baf file will be placed
+#    next to the bam file, unless the directory is not writable, in which case
+#    it will be put in <outdir>.
+# 3. run the asdog.gcmodel.r, asdog.gccorrect.r, asdog.plmodel.r and asdog.segment.r
+#    scripts modules in this order. If the output (rds file) of a script module
+#    already exists then the module execution will be skipped, unless the --force
+#    option has been given. Note that whenever a new output is produced, then the
+#    subsequent modules in the chain will be executed. The same is true if a new
+#    basta or baf file is generated.
+#
+#usage: asdog [-f|--force] ref tumor normal [--<option>=<value>]*
+#usage:   -f|--force : force removal of previous computations if any
+#usage:          ref : reference file (without extension) Basta|Fasta format
+#usage:        tumor : tumor file (without extension) Baf|Bam format
+#usage:       normal : paired normal file (without extension) Baf|Bam format
+#usage:      options : use asdog --help <module> to get a list of options
+#usage: or
+#usage: asdog --help gcmodel|gccorrect|plmodel|segment
+#usage:   get list of module options
+#
+
+set here     = `dirname $0`
+set portname = `$here/guessport`
+set bindir   = $here/../ports/$portname/bin
+
+#
+# check number of arguments
+#
+if ($#argv < 2) then
+  echo -n "usage: "                            > /dev/stderr
+  egrep '^#usage:' $0 | sed -e 's/^#usage://1' > /dev/stderr
+  exit 1
+endif
+
+#
+# check --help <module> option
+#
+if ("$1" == '--help') then
+  shift
+  if ($#argv != 1) then
+    $0; exit 1
+  endif
+  set cmd = $here/asdog.$1.r
+  if (! -e $cmd) then
+    echo "$1 : module not found" > /dev/stderr
+    $0; exit 1
+  endif
+  $cmd --help; exit 0
+endif
+
+#
+# check --force option
+#
+set force = 0
+if (("$1" == '-f') || ("$1" == '--force')) then
+  set force = 1; shift
+endif
+
+#
+# --error callback : print error message
+#   --error any*
+#
+if ("$1" == '--error') then
+  shift
+  echo "* $*" > /dev/stderr
+  exit 1
+endif
+
+#
+# --banner callback : print banner
+#   --banner any*
+#
+if ("$1" == '--banner') then
+  shift
+  echo "+ -------------------------"
+  echo "+ $*"
+  echo "+ -------------------------"
+  exit 0
+endif
+
+#
+# --writable callback : check if directory is writable
+#   --writable path outdir
+#
+if ("$1" == '--writable') then
+  shift
+  touch $1.$$ >& /dev/null
+  if ($status) then
+    echo -n "*" `dirname $1` "directory not writable"  > /dev/stderr
+    echo ", will work in current directory"            > /dev/stderr
+    echo "$2"/`basename "$1"`
+  else
+    rm -f $1.$$
+    echo "$2/$1"
+  endif
+  exit 0
+endif
+
+#
+# --checkfile callback : check if file exists
+#   --checkfile filepath extfrom extto outdir
+#
+if ("$1" == '--checkfile') then
+  shift
+  set alt = $4/`basename $1`
+  if (-e $alt.$3.bgz) then
+    echo "$alt.$3.bgz"; exit 0
+  else if (-e $alt.$3) then
+    echo "$alt.$3"; exit 0
+  else if (-e $1.$3.bgz) then
+    echo "$1.$3.bgz"; exit 0
+  else if (-e $1.$3) then
+    echo "$1.$3"; exit 0
+  else if (-e $1.$2) then
+    echo "$1.$2"; exit 0
+  else
+    $0 --error "["`dirname $1`"|$4]/"`basename $1`".[$2|$3|$3.bgz] : file not found"
+  endif
+  exit 1
+endif
+
+#
+# --waitunlock callback : wait for lock to be removed
+#   --waitunlock file sleep try
+#
+if ("$1" == '--waitunlock') then
+  shift
+  if (! -e $1) exit 0
+  if ($3 == 0) then
+    echo "* waitunlock $1 : too many tries. aborting" > /dev/stderr
+    exit 1
+  endif
+  echo "+ waiting unlock $1 [$3]"
+  sleep $2
+  @ try = $3 - 1
+  exec $0 --waitunlock $1 $2 $try
+endif
+
+#
+# --cleanext callback : cleanup file extension
+#   --cleanext file ext
+#
+if ("$1" == '--cleanext') then
+  shift
+  set path = "$1"
+  if ("$path:e" == bgz) set path = "$path:r"
+  if ("$path:e" == "$2") set path = "$path:r"
+  echo $path
+  exit 0
+endif
+
+#
+# check number of arguments
+#
+if ($#argv < 3) then
+    $0; exit 1
+endif
+
+#
+# check arguments
+#
+set ref = $1; shift
+set tumor = $1; shift
+set normal = $1; shift
+
+#
+# check --outdir option
+#
+set outdir = "."
+foreach opt ($*)
+  switch ("$opt")
+    case "--outdir=*" 
+        set outdir = `echo $opt | sed -e 's/^--outdir=//1'`
+        breaksw
+  endsw
+end
+
+if (! -d $outdir) then
+  mkdir $outdir
+  if ($status) exit 1
+endif
+
+#
+# check files
+#
+set ref = `$0 --checkfile $ref fst bst $outdir`
+if ($status) exit 2
+
+set tumor = `$0 --checkfile $tumor bam baf $outdir`
+if ($status) exit 2
+
+set normal = `$0 --checkfile $normal bam baf $outdir`
+if ($status) exit 2
+
+#
+# convert tumor bam to baf
+# (do bam2baf conversions first in case we have to wait for basta)
+#
+if ($tumor:e == bam) then
+  $0 --banner "converting tumor bam to baf"
+  set out = `$0 --writable $tumor:r $outdir`
+  echo "+    $tumor to $out.baf.bgz"
+  $bindir/bam2baf -z $tumor $out.baf
+  if ($status) exit 3
+  set tumor = $out.baf.bgz
+  set force = 1  # will force recompute
+  $0 --banner "tumor bam to baf done"
+endif
+
+if ($normal:e == bam) then
+  $0 --banner "converting normal bam to baf"
+  set out = `$0 --writable $normal:r $outdir`
+  echo "+    $normal to $out.baf.bgz"
+  $bindir/bam2baf -z $normal $out.baf
+  if ($status) exit 3
+  set normal = $out.baf.bgz
+  set force = 1  # will force recompute
+  $0 --banner "normal bam to baf done"
+endif
+
+#
+# check basta lock
+# (for concurrent jobs)
+#
+if ($ref:e == fst) then
+  set out = `$0 --writable $ref:r $outdir`
+  $0 --waitunlock $out.lck 2 10
+  if ($status) exit 4
+endif
+
+#
+# convert fasta to basta
+#
+if ($ref:e == fst) then
+  $0 --banner "converting fasta to basta"
+  set out = `$0 --writable $ref:r $outdir`
+  echo "+    $ref to $out.bst.bgz"
+  echo $$ > $out.lck  # put lock
+  $bindir/fasta2basta -z $ref $out.bst |& tee -a $out.lck
+  if ($status) exit 3 # keep lock in place
+  rm -f $out.lck # remove lock
+  set ref = $out.bst.bgz
+  set force = 1  # will force recompute
+  $0 --banner "fasta to basta done"
+endif
+
+# --------------
+# at this point all basta and baf file should be ready
+# --------------
+
+#
+# strip file extension
+#
+set ref = `$0 --cleanext $ref bst`
+set tumor = `$0 --cleanext $tumor baf`
+set normal = `$0 --cleanext $normal baf`
+
+#
+# collect options and wrap them into quotes
+# to pass them unchanged to R scripts
+#
+set noglob  # no globbing please
+@ i = 1
+set opts = ()
+while ($i <= $#argv)
+  set opts = ("$opts" "'""$argv[$i]""'")
+  @ i++
+end
+
+#
+# run GC model
+#
+
+if ($force || (! -e $tumor.gcmodel.rds)) then
+  echo "+ -------------------------"
+  echo "+ compute tumor GC model"
+  echo "+ -------------------------"
+  eval $here/asdog.gcmodel.r --base=$tumor --ref=$ref $opts
+  if ($status) exit $status
+  set force = 1  # force next steps
+  echo "+ -------------------------"
+  echo "+ tumor GC model done"
+  echo "+ -------------------------"
+else
+  echo "+ GC model [$tumor.gcmodel.rds] already computed [skipped] (use --force to force recompute)"
+endif
+
+#
+# run GC correct
+#
+
+if ($force || (! -e $tumor.gccorrect.rds)) then
+  echo "+ -------------------------"
+  echo "+ compute tumor GC correction"
+  echo "+ -------------------------"
+  eval $here/asdog.gccorrect.r --gcmodel=$tumor.gcmodel $opts
+  if ($status) exit $status
+  set force = 1  # force next steps
+  echo "+ -------------------------"
+  echo "+ tumor GC correction done"
+  echo "+ -------------------------"
+else
+  echo "+ GC correction [$tumor.gccorrect.rds] already computed [skipped] (use --force to force recompute)"
+endif
+
+#
+# run Ploidy model
+#
+
+if ($force || (! -e $tumor.plmodel.rds)) then
+  echo "+ -------------------------"
+  echo "+ compute tumor ploidy model"
+  echo "+ -------------------------"
+  eval $here/asdog.plmodel.r --normal=$normal --gccorrect=$tumor.gccorrect $opts
+  if ($status) exit $status
+  set force = 1  # force next steps
+  echo "+ -------------------------"
+  echo "+ tumor ploidy model done"
+  echo "+ -------------------------"
+else
+  echo "+ ploidy model [$tumor.plmodel.rds] already computed [skipped] (use --force to force recompute)"
+endif
+
+#
+# run segmentation
+#
+
+if ($force || (! -e $tumor.segment.rds)) then
+  echo "+ -------------------------"
+  echo "+ compute tumor segmentation"
+  echo "+ -------------------------"
+  eval $here/asdog.segment.r --gccorrect=$tumor.gccorrect --plmodel=$tumor.plmodel $opts
+  if ($status) exit $status
+  set force = 1  # force next steps
+  echo "+ -------------------------"
+  echo "+ tumor segmentation done"
+  echo "+ -------------------------"
+else
+  echo "+ segmentation [$tumor.segment.rds] already computed [skipped] (use --force to force recompute)"
+endif
+
+#
+# end
+#
+
+echo "+"
+echo "+ reference: $ref"
+echo "+ tumor baf: $tumor"
+echo "+ normal baf: $normal"
+echo "+ tumor gcmodel report: $tumor.gcmodel.pdf"
+echo "+ tumor gccorrect report: $tumor.gccorrect.pdf"
+echo "+ tumor plmodel report: $tumor.plmodel.pdf"
+echo "+ tumor segment report: $tumor.segment.pdf"
+echo "+"
+echo "+ -------------------------"
+echo "+ asdog finished"
+echo "+ -------------------------"
+
+exit 0
