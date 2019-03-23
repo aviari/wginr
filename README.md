@@ -104,7 +104,7 @@ if everything runs fine then type:
 make install
 ```
 
-R will try to install packages from CRAN or the local directory
+R will try to install packages from CRAN or from the local directory
 ```Rsrc/packages/source```
 
 In case of trouble, see [Compilation/Installation troubles](#Compilation-Installation-troubles) below
