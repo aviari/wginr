@@ -222,7 +222,7 @@ WGInR makes use of the following libraries or packages
 
 This project is licensed under the GPL License - see the [LICENSE](LICENSE)
 file for details
-<table>
+<table border="none">
 <tr>
 <td><img src="docs/aif4t.png" width="100"/></td>
 <td>
