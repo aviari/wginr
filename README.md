@@ -226,8 +226,9 @@ file for details
 <tr>
 <td><img src="docs/aif4t.png" width="100"/></td>
 <td>
-This software is AI  free</br>no neural has been trained or killed</br>
-during its development
+This software is AI  free</br>
+no neural network has been trained</br>
+or killed during its development
 </td>
 </th>
 </table>
