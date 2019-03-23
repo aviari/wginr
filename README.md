@@ -223,5 +223,5 @@ WGInR makes use of the following libraries or packages
 This project is licensed under the GPL License - see the [LICENSE](LICENSE)
 file for details
 
-
+<img src="../docs/aif4t.jpg" width="100"/>
 
