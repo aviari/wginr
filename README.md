@@ -109,7 +109,7 @@ R will try to install packages from CRAN or from the local directory
 
 In case of trouble, see [Compilation/Installation troubles](#Compilation-Installation-troubles) below
 
-All other (C) binaries will be installed in: ```ports/\<portname\>/bin```
+All other (C) binaries will be installed in: ```ports/<portname>/bin```
 
 where \<portname\> is your current port:
 
