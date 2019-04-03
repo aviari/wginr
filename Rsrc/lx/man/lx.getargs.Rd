@@ -2,35 +2,60 @@
 % Please edit documentation in R/lx.osutil.r
 \name{lx.getargs}
 \alias{lx.getargs}
-\title{commandArgs parsing}
+\title{command line arguments parsing}
 \usage{
-lx.getargs(verbose = FALSE, defaults = NULL)
+lx.getargs(verbose = FALSE, defaults = NULL, .pattern = "^--")
 }
 \arguments{
-\item{verbose}{print verbage to screen}
+\item{verbose}{print verbiage to screen}
 
 \item{defaults}{a named list of defaults, optional}
+
+\item{.pattern}{internal pattern used to strip characters in options.
+default is to strip two leading '-'. A more laxist policy could be "^-+" i.e. 
+any number of leading '-'.}
 }
 \value{
 a named list
 }
 \description{
-return a named list of command line arguments
+get a named list of command line arguments
 
 Usage:
-call the R script as\cr
-  ./myfile.R --args myarg=something\cr
-or\cr
-  R CMD BATCH --args myarg=something myfile.R\cr
+call the R script as
+\preformatted{
+  ./script.R [--]arg[=value]
+or
+  R CMD BATCH [--]arg[=value] script.R
+}
 
-Then in R do\cr
-  myargs <- getArgs()\cr
-to retrieve a named list of arguments
+Then in R script do
+\preformatted{
+  myargs <- lx.getargs()
+}
+to retrieve a named list of command line arguments, in the following form:
+\tabular{llll}{
+arg_form \tab name \tab value \tab typeof_value\cr
+----------- \tab ---- \tab ---- \tab --------\cr
+[--]arg=val \tab arg \tab val \tab character\cr
+[--]arg \tab arg \tab TRUE \tab logical\cr
+}
+example:
+\preformatted{
+myscript.R --a=100 --b=yes c.c
+}
+will yields the following named list in R:
+\preformatted{
+list(a="100", b="yes", c.c=TRUE)
+}
 }
 \note{
-don't confuse this function with \link{lx.args} that handle function arguments.
+don't confuse this function with \link{lx.args} that handles \bold{function} arguments.
 
-Borrowed from : http://cwcode.wordpress.com/2013/04/16/the-joys-of-rscript/
+borrowed from : \href{http://cwcode.wordpress.com/2013/04/16/the-joys-of-rscript/}{http://cwcode.wordpress.com/2013/04/16/the-joys-of-rscript/}
+}
+\seealso{
+\link{commandArgs}
 }
 \author{
 Chris Wallace
