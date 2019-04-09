@@ -155,11 +155,11 @@ to use the CRAN fresher versions.
 In case of trouble with R package installation,
 please read: docs/Readme_RPackages.txt
 
-#### curses
+### samtools dependencies
 
-curses is needed by some (viewing) utilities in samtools.
-if curses is not installed then Makefile in samtools should detect
-and skip it (I hope so actually... didn't try yet).
+Several samtools dependencies have been turned off by default
+because we don't need them in our binaries. If you need these
+functionalities, please see Csrc/README.
 
 ## Running
 

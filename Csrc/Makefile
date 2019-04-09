@@ -24,18 +24,25 @@ SAMPRG = samtools
 
 # flags for configuring htslib and samtools
 
-CONF_SAM_FLAGS = CPPFLAGS='-I../libdeflate -I../zlib' \
-                 LDFLAGS='-L../libdeflate -L../zlib -Wl,-L../libdeflate -L../zlib'
+CONF_HSAM_FLAGS = CPPFLAGS='-I../libdeflate -I../zlib' \
+                  LDFLAGS='-L../libdeflate -L../zlib -Wl,-L../libdeflate -L../zlib'
 
-CONF_SAM_FLAGS += --disable-plugins --disable-libcurl
+CONF_HSAM_FLAGS += --disable-plugins --disable-libcurl
 
 ifndef WITH_BZ2
-CONF_SAM_FLAGS += --disable-bz2
+CONF_HSAM_FLAGS += --disable-bz2
 endif
 
 ifndef WITH_LZMA
-CONF_SAM_FLAGS += --disable-lzma
+CONF_HSAM_FLAGS += --disable-lzma
 endif
+
+# flags specific to samtools
+
+ifndef WITH_CURSES
+CONF_OSAM_FLAGS += --without-curses --without-ncursesw
+endif
+
 
 # -------------------------------------
 # rules
@@ -71,13 +78,13 @@ dfllib:
 	cd $(DFLDIR) && make CFLAGS='-fPIC -O3' libdeflate.a
 
 htslib_conf:
-	(test -e $(HTSDIR)/config.h) || (cd $(HTSDIR) && ./configure $(CONF_SAM_FLAGS))
+	(test -e $(HTSDIR)/config.h) || (cd $(HTSDIR) && ./configure $(CONF_HSAM_FLAGS))
 	
 htslib: dfllib htslib_conf
 	cd $(HTSDIR) && $(MAKE)
 
 sam_conf:
-	(test -e $(SAMDIR)/config.h) || (cd $(SAMDIR) && ./configure $(CONF_SAM_FLAGS))
+	(test -e $(SAMDIR)/config.h) || (cd $(SAMDIR) && ./configure $(CONF_HSAM_FLAGS) $(CONF_OSAM_FLAGS))
 
 sam: htslib sam_conf
 	cd $(SAMDIR) && $(MAKE)

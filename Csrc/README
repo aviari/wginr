@@ -42,3 +42,7 @@ If you have these libraries (libbz2 and liblzma) already
 installed on your system, then run 
 
 make WITH_BZ2=yes WITH_LZMA=yes all 
+
+In the same way (n)curses in samtools is now disabled by
+default, if you have ncurses already installed on your
+system, then run make with WITH_CURSES=yes
