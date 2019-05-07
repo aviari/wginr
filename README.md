@@ -170,7 +170,7 @@ You may add the following directories to your path:
 - ```<wginr_root>/scripts```
 - ```<wginr_root>/ports/<portname>/bin```
 
-(where **\<portname\>** is given by ```scripts/guessport```)
+(where **\<portname\>** is given by running ```scripts/guessport```)
 
 
 ### R_LIBS setup
