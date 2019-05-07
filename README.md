@@ -85,7 +85,7 @@ eg:
 >(bash)
 ```sh
   mkdir $HOME/R
-  export export R_LIBS=$HOME/R
+  export R_LIBS=$HOME/R
 ```
 note: you may change the name of the R_LIBS repository to whatever you prefer
        (e.g. $home/MyRLibs) as long as you declare it in R_LIBS
