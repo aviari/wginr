@@ -1,4 +1,4 @@
-# WGInR (Asdog/Aspup) v2.0.0
+# WGInR (Asdog/Aspup) v2.0.1
 
 WGInR ('Whole Genomes In R') are C and R tools 
 from the Lyon Cancer Bioinformatics Facility
