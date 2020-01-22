@@ -136,6 +136,12 @@ use: asdog.plmodel.r --normal=<normal> --gccorrect=<gccorrect>[--outdir=<dir>][-
 use --help to get a list of available options
 ```
 
+***Notice*** Because of a bug in the `bcp` library (underflow), the default
+pre-segmentation mode for ploidy model is `--plmodel.preseg.mode=shmm`. If you are
+on a MacOSX box, you may switch back to `--plmodel.preseg.mode=bcp` (which is more
+robust), on linux please keep the default value until I find the bug. 
+
+
 ### asdog.segment.r 
 ```
 use: asdog.segment.r --gccorrect=<gccorrect>[-- --plmodel=<plmodel>][--outdir=<dir>][--<option>=<value>]

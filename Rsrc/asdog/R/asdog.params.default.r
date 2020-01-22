@@ -320,7 +320,7 @@ asdog.default.params <- function() {
   def$plmodel.preseg.mode <- .def("cnpredict: ploidy model",
                                   "pre-segmentation mode (shmm or bcp)",
                                   "character",
-                                  "bcp")
+                                  "shmm")
   
   def$plmodel.preseg.rcmax <- .def("cnpredict:shmm: ploidy model",
                                    "pre-segmentation maximum rrc",
