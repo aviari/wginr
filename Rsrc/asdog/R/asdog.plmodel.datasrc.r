@@ -115,11 +115,12 @@ asdog.rcaf.datasrc <- function(nor.hdle, tum.hdle, gccorrect, chrs,
   #
   lx.out("get tumoral rrc from gccorrect", with.mem=T)
   binsize <- gccorrect$params$gccorrect.binsize
+binsize=1e6 # debug
   res <- lx.lapply(as.character(chrs), function(chr) {
     rc <- gccorrect$bychr[[chr]]
     af <- res[[chr]]
     i <- lx.findInterval(af$pos, rc$pos)
-    ok <- (af$pos - rc$pos[i]) <= binsize
+    ok <- abs(af$pos - rc$pos[i]) <= binsize
     res <- lapply(af, function(x) x[ok])
     res$rrc <- rc$rrc.cor[i[ok]]
     res

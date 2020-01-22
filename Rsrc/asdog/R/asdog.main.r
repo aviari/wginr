@@ -132,7 +132,7 @@ asdog.tex.driver <- function(params) {
   res    <- params$report.driver.res
   
   if (driver %in% c('jpeg', 'png', 'tiff'))
-    lx.options(tex.driver.options=list(list(units="in", res=res)))
+    lx.options(tex.driver.options=list(list(type="cairo", units="in", res=res)))
   else
     lx.options(tex.driver.options=list(NULL))
 

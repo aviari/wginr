@@ -46,13 +46,17 @@ ifndef CRAN_REPOS
   CRAN_REPOS = http://cran.irsn.fr
 endif
 
+ifdef SKIP_CRAN
+RCHECK += --skipcran=TRUE
+endif
+
 # -------------------------------------
 # implicit rules
 #
 
 %.src: %
 	$(RCMD) build $<
-	\mv -f $(<)_?.?.tar.gz packages/source
+	\mv -f $(<)_?.*.tar.gz packages/source
 
 %.man: %
 	$(RCMD) Rd2pdf --title="$< Package" --batch --no-preview --force -o $</inst/doc/$<.pdf $<
@@ -73,18 +77,18 @@ endif
 all: banner packages footer
 
 banner:
-	@echo '[0;34m'
+	@echo '[0;34m'
 	@echo "----------------------------------------"
 	@echo " make WGInR R sources"
 	@echo "----------------------------------------"
-	@echo '[m'
+	@echo '[m'
 
 footer:
-	@echo '[0;32m'
+	@echo '[0;32m'
 	@echo "----------------------------------------"
 	@echo " WGInR R sources ok"
 	@echo "----------------------------------------"
-	@echo '[m'
+	@echo '[m'
 
 packages: $(PACK_SRC)
 
@@ -109,10 +113,17 @@ depends:
 	-$(RCHECK) --package=Rcpp          --repos=$(CRAN_REPOS)
 	-$(RCHECK) --package=RcppArmadillo --repos=$(CRAN_REPOS)
 	-$(RCHECK) --package=bcp           --repos=$(CRAN_REPOS)
+	-$(RCHECK) --package=chron         --repos=$(CRAN_REPOS)
 	-$(RCHECK) --package=data.table    --repos=$(CRAN_REPOS)
 	-$(RCHECK) --package=RColorBrewer  --repos=$(CRAN_REPOS)
 	-$(RCHECK) --package=viridisLite   --repos=$(CRAN_REPOS)
+ifndef NO_DEV
+	-$(RCHECK) --package=R6            --repos=$(CRAN_REPOS) # for development
+	-$(RCHECK) --package=magrittr      --repos=$(CRAN_REPOS) # for development
+	-$(RCHECK) --package=praise        --repos=$(CRAN_REPOS) # for development
+	-$(RCHECK) --package=crayon        --repos=$(CRAN_REPOS) # for development
 	-$(RCHECK) --package=testthat      --repos=$(CRAN_REPOS) # for development
+endif
 
 instdir:
 	make instdir.chk || make instdir.fail
@@ -125,7 +136,7 @@ instdir.chk:
 
 instdir.fail:
 	$(eval R_DIR = $(shell etc/bootpath))
-	@echo '[0;31m'
+	@echo '[0;31m'
 	@echo ' ======================================='
 	@echo " R install dir is : $(R_DIR)"
 	@echo ' ======================================='
@@ -137,7 +148,7 @@ instdir.fail:
 	@echo ' Create this directory if necessary'
 	@echo ' and rerun "make install"'
 	@echo ' ======================================='
-	@echo '[m'
+	@echo '[m'
 	
 testunit:
 	$(RTEST) --package=lx

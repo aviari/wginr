@@ -414,7 +414,7 @@ asdog.default.params <- function() {
   def$plmodel.bcp.p0 <- .def("cnpredict:bcp: ploidy model",
                              "bcp p0 parameter",
                              "double",
-                             1e-100)
+                             1e-50)
   
   # ploidy fit
 

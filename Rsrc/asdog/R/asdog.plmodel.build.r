@@ -193,7 +193,10 @@ asdog.plmodel <- function(rcsource, params=rcsource$params,
   } else {
     
     lx.out("BCP")
-    
+    #
+    # @[fixme]: the plmodel.bcp.p0 parameter is too critical
+    #           we should specify a range and select best value according to
+    #           some criterion.
     segres <- asdog.bcp.segment(rcaf$rrc, rcaf$baf,
                                 rcmax=params$plmodel.preseg.rcmax,
                                 smooth.rc=params$plmodel.bcp.rc.smooth,
@@ -232,10 +235,15 @@ asdog.plmodel <- function(rcsource, params=rcsource$params,
   #
   # obs$weight <- obs$weight * sqrt(((obs$rc-1)^2 + (obs$af-0.5)^2))
   #
-  quant <- quantile(obs$weight, params$plmodel.fit.weightquant)
-  obs <- obs[obs$weight >= quant,,drop=F]
-  lx.out("segment weight quantile ", params$plmodel.fit.weightquant*100,
-         " : ", sprintf("%.2f", quant))
+  # notice: with flat profiles, quantile filtering may remove
+  # useful information. 
+  #
+  if (nrow(obs) > 10) { # @[fixme]: should be a parameter
+    quant <- quantile(obs$weight, params$plmodel.fit.weightquant)
+    obs <- obs[obs$weight >= quant,,drop=F]
+    lx.out("segment weight quantile ", params$plmodel.fit.weightquant*100,
+           " : ", sprintf("%.2f", quant))
+  }
 
   # fit
   #

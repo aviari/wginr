@@ -72,7 +72,12 @@ lx.out("---------------------------------------", with.mem=T)
 lx.out(" filtering SNPs")
 lx.out("---------------------------------------")
 
-snp <- asdog.snp.filter(snp, chrs=params$chrs,
+# @fixme : chrindex to chrname
+nor.hdl <- baf.open(nor.path)
+chrs <- baf.index2name(nor.hdl, params$chrs)
+baf.close(nor.hdl)
+
+snp <- asdog.snp.filter(snp, chrs=chrs,
                         pop.low=params$snp.pop.low, 
                         nsample=params$snp.sample.size)
 
