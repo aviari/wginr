@@ -56,7 +56,7 @@ endif
 
 %.src: %
 	$(RCMD) build $<
-	\mv -f $(<)_?.*.tar.gz packages/source
+	\mv -f $(<)_?.?.tar.gz packages/source
 
 %.man: %
 	$(RCMD) Rd2pdf --title="$< Package" --batch --no-preview --force -o $</inst/doc/$<.pdf $<

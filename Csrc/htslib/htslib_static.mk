@@ -1,2 +1,2 @@
-HTSLIB_static_LDFLAGS = 
-HTSLIB_static_LIBS = -lz -lm -lbz2 -llzma
+HTSLIB_static_LDFLAGS = -L../libdeflate -L../zlib -Wl,-L../libdeflate -L../zlib
+HTSLIB_static_LIBS = -lpthread -lz -lm -ldeflate
