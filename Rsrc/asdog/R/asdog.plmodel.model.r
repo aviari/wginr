@@ -203,7 +203,10 @@ asdog.sd.fold <- function(mu, sd) {
 # solve mu/md and sd for fold
 # by recursive refinement
 #
-asdog.unfold <- function(mu, sd, type=c("mean", "median"), mu0=mu, sd0=sd, .eps=1e-3) {
+# v2.1: added max recursion to avoid stack overflow
+#
+asdog.unfold <- function(mu, sd, type=c("mean", "median"), mu0=mu, sd0=sd, .eps=1e-3, 
+                         .maxdepth=500, .depth=0) {
   .invert <- function(fun, y0) {
     sol <- lx.zero(function(x) fun(x) - y0, 
                    xtol=.eps, ytol=.eps,
@@ -219,7 +222,9 @@ asdog.unfold <- function(mu, sd, type=c("mean", "median"), mu0=mu, sd0=sd, .eps=
   mu1 <- .invert(function(x) fun.fold(x, sd0), mu)$lower
   sd1 <- .invert(function(x) asdog.sd.fold(mu1, x), sd)$upper
   if (   (((abs(mu0-mu1) <= .eps) && (abs(sd0-sd1) <= .eps)))
-         || (((abs(mu-mu1)  <= .eps) && (abs(sd-sd1)  <= .eps)))) {
+      || (((abs(mu-mu1)  <= .eps) && (abs(sd-sd1)  <= .eps)))
+      || (.depth >= .maxdepth)) {
+    lx.warnif(.depth >= .maxdepth, "max recursion depth reached - no convergence achieved at ", .eps)
     pmu <- fun.fold(mu1, sd1)
     psd <- asdog.sd.fold(mu1, sd1)
     return(list(target=list(mu=mu, sd=sd),
@@ -227,5 +232,6 @@ asdog.unfold <- function(mu, sd, type=c("mean", "median"), mu0=mu, sd0=sd, .eps=
                 actual=list(mu=pmu, sd=psd),
                 error=list(mu=mu-pmu, sd=sd-psd)))
   }
-  return(asdog.unfold(mu, sd, type=type, mu1, sd1, .eps=.eps))
+  return(asdog.unfold(mu, sd, type=type, mu1, sd1, .eps=.eps,
+                      .maxdepth=.maxdepth, .depth=.depth+1))
 }
