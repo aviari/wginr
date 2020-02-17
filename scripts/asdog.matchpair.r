@@ -55,6 +55,17 @@ ref.path <- asdog.check.file(params$ref.snp, c("txt", "rds"), .bgz=NULL)
 asdog.print.params(asdog.filter.params(params, "matchpair:"))
 
 #
+# load baf files
+#
+
+lx.out("---------------------------------------", with.mem=T)
+lx.out(" loading baf")
+lx.out("---------------------------------------")
+
+nor.hdl <- baf.open(nor.path)
+tum.hdl <- baf.open(tum.path)
+
+#
 # load SNP 
 #
 
@@ -72,25 +83,10 @@ lx.out("---------------------------------------", with.mem=T)
 lx.out(" filtering SNPs")
 lx.out("---------------------------------------")
 
-# @fixme : chrindex to chrname
-nor.hdl <- baf.open(nor.path)
 chrs <- baf.index2name(nor.hdl, params$chrs)
-baf.close(nor.hdl)
-
 snp <- asdog.snp.filter(snp, chrs=chrs,
                         pop.low=params$snp.pop.low, 
                         nsample=params$snp.sample.size)
-
-#
-# load baf files
-#
-
-lx.out("---------------------------------------", with.mem=T)
-lx.out(" loading baf")
-lx.out("---------------------------------------")
-
-nor.hdl <- baf.open(nor.path)
-tum.hdl <- baf.open(tum.path)
 
 #
 # match pairs
