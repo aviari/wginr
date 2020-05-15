@@ -121,8 +121,10 @@ asdog.absCN <- function(rRC, alpha, Q) {
 # alpha: contamination by normal
 # k: 0:q heterozygoty
 #
+# note: there is a singularity at alpha=0
+#
 asdog.relAF <- function(q, alpha, k=0:q) {
-  alpha <- max(min(alpha, 1), 0)
+  alpha <- max(min(alpha, 1), 0.001)
   .fun <- function(x, C) x*(1-alpha) + C*alpha
   .fun(k,1)/.fun(q,2)
 }
